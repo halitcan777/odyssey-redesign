@@ -224,7 +224,11 @@ footer{border-top:1px solid var(--line);padding:48px 0 32px;font-size:13px;color
 /* ── мобайл ≤700: единая левая кромка ── */
 @media(max-width:700px){
   .wrap{padding:0}
-  header .nav{padding:0 20px}
+  header .nav{padding:0 20px;gap:12px}
+  .logo small{display:none}
+  .logo>span:last-child{line-height:1}
+  .nav-phone{font-size:13px;margin-left:auto}
+  .nav-phone span{display:none}
   .cell,.cell--big,.cell--compact{padding:20px}
   .page-hero,.hero-left{padding-left:20px;padding-right:20px}
   .hero-photo{margin:0}
@@ -236,3 +240,39 @@ footer{border-top:1px solid var(--line);padding:48px 0 32px;font-size:13px;color
 }
 .trow--2{grid-template-columns:1fr auto}
 @media(max-width:760px){.trow--2{grid-template-columns:1fr}}
+
+/* ── конверсионные фиксы 24.07 ── */
+.stat b{white-space:nowrap}
+.stat b a{color:inherit}
+
+/* бургер-меню */
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);width:44px;height:44px;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1020px){
+  .burger{display:flex}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 16px;margin:0;z-index:60}
+  .nav-links.open a{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .nav-links.open a:last-child{border-bottom:none}
+  .nav-phone{margin-left:16px}
+}
+
+/* CTA-полоса в конце продуктовых страниц */
+.cta-band{background:var(--red);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px 48px;flex-wrap:wrap}
+.cta-band h2{font-size:28px}
+.cta-band p{color:rgba(255,255,255,.85);font-size:14px;margin-top:4px}
+.cta-band .btns{display:flex;gap:16px;flex-wrap:wrap}
+.cta-band .btn-white{border:1px solid #fff;color:#fff}
+.cta-band .btn-white:hover{background:#fff;color:var(--red)}
+.cta-band .btn-solid{background:#fff;color:var(--red)}
+.cta-band .btn-solid:hover{background:var(--ink);color:#fff}
+@media(max-width:700px){.cta-band{padding:24px 20px}}
+
+/* шаги покупки */
+.steps{counter-reset:s}
+.steps .cell{position:relative}
+.steps .cell::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--display);font-weight:700;font-size:32px;color:var(--red);display:block;margin-bottom:8px}
+footer{margin-top:96px}

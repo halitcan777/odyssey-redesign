@@ -30,6 +30,7 @@
       <a href="#kontakty">Контакты</a>
     </nav>
     <a class="nav-phone" href="tel:+73422066911">+7 (342) 20-66-911<span>многоканальный</span></a>
+    <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -309,13 +310,15 @@
       <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Перезвоним в рабочее время, подскажем по цене и срокам.</p>
       <input type="text" placeholder="Как вас зовут" required>
       <input type="tel" placeholder="+7 (___) ___-__-__" required>
-      <select>
+      <select id="tema">
         <option>Охрана объекта</option>
         <option>Стрелковый тир</option>
+        <option>Подарочная карта в тир</option>
         <option>Обучение в УЦ</option>
         <option>Проверка на полиграфе</option>
         <option>Экскурсия / клуб «Патриот»</option>
       </select>
+      <input type="text" placeholder="Комментарий: объект, адрес, задача (необязательно)">
       <button class="btn btn-red" type="submit">Отправить</button>
       <small>Прототип: форма не подключена к серверу</small>
     </form>
@@ -355,6 +358,7 @@
         <div><a href="tel:+73422141911">+7 (342) 21-41-911</a></div>
         <div><a href="tel:+79223332911">+7 (922) 333-29-11</a></div>
         <div>круглосуточно</div>
+        <div style="margin-top:12px">Пермь, ул. Стахановская, 54Л</div>
       </div>
     </div>
     <div class="f-bottom">
@@ -365,6 +369,10 @@
 </footer>
 
 <script>
+document.querySelector('.burger')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')});
+const TEMA={ohrana:'Охрана объекта',tir:'Стрелковый тир',gift:'Подарочная карта в тир',uc:'Обучение в УЦ',poligraf:'Проверка на полиграфе',excursion:'Экскурсия / клуб «Патриот»'};
+const t=new URLSearchParams(location.search).get('t');
+if(t&&TEMA[t]){const sel=document.getElementById('tema');if(sel)sel.value=TEMA[t];}
 const bar=document.getElementById('progress');
 addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
 

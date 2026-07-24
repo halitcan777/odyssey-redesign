@@ -24,6 +24,7 @@ LOGO_SVG = ('<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d
 SCRIPT = """<script>
 const bar=document.getElementById('progress');
 addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+document.querySelector('.burger')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduced){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
@@ -71,6 +72,7 @@ def shell(*, file, title, desc, content):
       {nav_links}
     </nav>
     <a class="nav-phone" href="tel:+73422066911">+7 (342) 20-66-911<span>многоканальный</span></a>
+    <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -93,6 +95,7 @@ def shell(*, file, title, desc, content):
         <div><a href="tel:+73422141911">+7 (342) 21-41-911</a></div>
         <div><a href="tel:+79223332911">+7 (922) 333-29-11</a></div>
         <div>круглосуточно</div>
+        <div style="margin-top:12px">Пермь, ул. Стахановская, 54Л</div>
       </div>
     </div>
     <div class="f-bottom">

@@ -9,6 +9,8 @@ PHOTO_MAP_FILE = os.path.join(ROOT, "фото", "карта_фото.json")
 
 def photo_for(path):
     """Локальное фото для страницы старого сайта (кладёт задача подготовки фото)."""
+    if path in PHOTO_BAN:
+        return None
     if os.path.exists(PHOTO_MAP_FILE):
         m = json.load(open(PHOTO_MAP_FILE, encoding="utf-8"))
         return m.get(path)
@@ -19,9 +21,18 @@ def esc(s):
     return H.escape(s, quote=False)
 
 
+BROKEN_WORDS = {
+    "централизованног о": "централизованного", "ежедневн о": "ежедневно",
+    "лет-пулемет": "пистолет-пулемёт", "Дягтерева": "Дегтярёва",
+}
+
 def snippet(text, maxlen=220):
-    """Первые предложения текста, обрезка по границе предложения."""
+    """Первые предложения текста, обрезка по границе предложения + чистка артефактов DLE."""
     text = re.sub(r"\s+", " ", text).strip()
+    for bad, good in BROKEN_WORDS.items():
+        text = text.replace(bad, good)
+    text = re.sub(r"\s+([,.:;!?])", r"\1", text)
+    text = re.sub(r"\b(\d{1,2}) 00\b", r"\1:00", text)
     if len(text) <= maxlen:
         return text
     cut = text[:maxlen]
@@ -50,8 +61,31 @@ def sec_head(kicker, h2, p=""):
   </div>"""
 
 
+TITLE_FIX = {
+    "Пистолет-пулемет Glock 17": "Пистолет Glock 17",
+    "СКС “Мосина”": "Винтовка Мосина",
+    "СКС \"Мосина\"": "Винтовка Мосина",
+    "Пулемет Дягтерева": "Пулемёт Дегтярёва",
+}
+# страницы старого сайта с чужими фото — честнее плейсхолдер
+PHOTO_BAN = {"/oruzhie/107-karabin-sajga-410.html", "/oruzhie/108-pistolet-tulskij-tokarev-tt.html"}
+
 def clean_title(t):
-    return re.sub(r"\s*[»|].*$", "", t).strip()
+    t = re.sub(r"\s*[»|].*$", "", t).strip()
+    return TITLE_FIX.get(t, t)
+
+
+def cta_band(title, sub, theme, phone_label, phone_tel):
+    """Красная полоса-CTA в конце продуктовой страницы: заявка с темой + профильный телефон."""
+    return f"""<section class="wrap" style="margin-top:96px">
+  <div class="cta-band rv">
+    <div><h2>{esc(title)}</h2><p>{esc(sub)}</p></div>
+    <div class="btns">
+      <a class="btn btn-solid" href="index.html?t={theme}#kontakty">Оставить заявку</a>
+      <a class="btn btn-white" href="tel:{phone_tel}">{esc(phone_label)}</a>
+    </div>
+  </div>
+</section>"""
 
 
 def cta_cell(title, text, btn):
@@ -59,7 +93,7 @@ def cta_cell(title, text, btn):
     return f"""<div class="cell cell-flex cell--static" style="background:var(--red)">
   <h3 style="margin-bottom:12px;color:#fff">{esc(title)}</h3>
   <p style="font-size:13px;color:rgba(255,255,255,.85)">{esc(text)}</p>
-  <div class="bottom"><a class="btn" style="border:1px solid #fff;color:#fff" href="index.html#kontakty">{esc(btn)}</a></div>
+  <div class="bottom"><a class="btn" style="border:1px solid #fff;color:#fff" href="index.html?t=excursion#kontakty">{esc(btn)}</a></div>
 </div>"""
 
 
@@ -86,7 +120,7 @@ def build_tir(shell, page_hero, data):
     <div class="cell cell--compact stat"><b><span data-count="30">30</span><i> м</i></b><span>стрелковая галерея</span></div>
     <div class="cell cell--compact stat"><b data-count="26">26</b><span>единиц оружия: от ПМ до пулемёта Максим</span></div>
     <div class="cell cell--compact stat"><b data-count="2011">2011</b><span>год основания клуба</span></div>
-    <div class="cell cell--compact stat"><b>Ср–Вс</b><span>12:00–20:00 · +7 (342) 20-66-161</span></div>
+    <div class="cell cell--compact stat"><b>Ср–Вс</b><span>12:00–20:00 · <a href="tel:+73422066161" style="color:var(--ink)">+7 (342) 20-66-161</a></span></div>
   </div>
   <div class="bento g-3 bento--seamtop rv">
     <div class="cell cell-flex pr-cell">
@@ -114,17 +148,25 @@ def build_tir(shell, page_hero, data):
       <div class="nm">«Базовый»</div>
       <div class="pr">5 680 ₽</div>
       <p>знакомство с оружием, инструктаж, стрельба из пистолета под контролем инструктора</p>
+      <div class="bottom"><a class="btn btn-red" href="index.html?t=gift#kontakty">Заказать карту</a></div>
     </div>
     <div class="cell cell-flex pr-cell">
       <div class="nm">«Универсальный стрелок»</div>
       <div class="pr">7 880 ₽</div>
       <p>пистолет и длинноствольное оружие, больше выстрелов и упражнений</p>
+      <div class="bottom"><a class="btn btn-red" href="index.html?t=gift#kontakty">Заказать карту</a></div>
     </div>
     <div class="cell cell-flex pr-cell">
       <div class="nm">«Профессионал»</div>
       <div class="pr">11 000 ₽</div>
       <p>полный курс: тактика, скоростная стрельба, работа из разных положений</p>
+      <div class="bottom"><a class="btn btn-red" href="index.html?t=gift#kontakty">Заказать карту</a></div>
     </div>
+  </div>
+  <div class="bento g-3 bento--seamtop steps rv">
+    <div class="cell"><h3 style="margin-bottom:8px">Заявка или звонок</h3><p style="font-size:13px;color:var(--muted)">Оставьте заявку на сайте или позвоните: <a href="tel:+73422066161" style="color:var(--ink)">+7 (342) 20-66-161</a>, Ср–Вс 12:00–20:00.</p></div>
+    <div class="cell"><h3 style="margin-bottom:8px">Оплата в клубе</h3><p style="font-size:13px;color:var(--muted)">Пермь, ул. Стахановская, 54Л. Патроны считаются отдельно — пистолетный от 150 ₽.</p></div>
+    <div class="cell"><h3 style="margin-bottom:8px">Дарите</h3><p style="font-size:13px;color:var(--muted)">Стрельба проходит только с инструктором — опыт получателю не нужен.</p></div>
   </div>
 </section>
 
@@ -154,7 +196,9 @@ def build_tir(shell, page_hero, data):
       <div class="bottom"><a class="btn btn-line" href="muzey.html">В музей</a></div>
     </div>
   </div>
-</section>""")
+</section>
+
+{cta_band("Готовы пострелять?", "Заявка на сайте или звонок в клуб — подберём программу и время.", "tir", "+7 (342) 20-66-161", "+73422066161")}""")
 
 
 # ────────────────────────── МУЗЕЙ ──────────────────────────
@@ -200,7 +244,7 @@ def build_uc(shell, page_hero, data):
         cells.append(f"""<div class="cell cell-flex">
   <span class="num">{i + 1:02d} /</span>
   <h3 style="margin:8px 0 12px">{esc(clean_title(p["title"]))}</h3>
-  <p style="font-size:13px;color:var(--muted)">{esc(snippet(p["text"], 260))}</p>
+  <p style="font-size:13px;color:var(--muted)">{esc(snippet(p["text"].split("Стоимость")[0], 260))}</p>
   <div class="bottom">{price_html}</div>
 </div>""")
     hero = page_hero(
@@ -223,7 +267,9 @@ def build_uc(shell, page_hero, data):
       <div class="gold-note">Лицензия № 6801 от 14.07.2020, Министерство образования и науки Пермского края · учебные планы и отчётность — по запросу в центре</div>
     </div>
   </div>
-</section>""")
+</section>
+
+{cta_band("Записаться на обучение", "Подскажем программу под вашу задачу и ближайшие даты.", "uc", "+7 (342) 20-61-911", "+73422061911")}""")
 
 
 def _prices_of(text):
@@ -286,7 +332,9 @@ def build_ohrana(shell, page_hero, data):
   <div class="bento bento--seamtop rv">
     {price_rows}
   </div>
-</section>""")
+</section>
+
+{cta_band("Обсудим ваш объект?", "Расчёт по телефону или заявке: выезд на объект, схема постов, смета.", "ohrana", "Дежурная часть: +7 (342) 21-41-911", "+73422141911")}""")
 
 
 # ────────────────────────── ПОЛИГРАФ ──────────────────────────
@@ -332,7 +380,9 @@ def build_poligraf(shell, page_hero, data):
     </div>
     <div class="ph" style="min-height:220px"><span>Нужен материал:<br>фото прибора «РИФ»</span></div>
   </div>
-</section>""")
+</section>
+
+{cta_band("Нужна проверка?", "Конфиденциально: обсудим задачу и назначим время.", "poligraf", "+7 (342) 20-66-911", "+73422066911")}""")
 
 
 # ────────────────────────── ДОБРЫЕ ДЕЛА ──────────────────────────
