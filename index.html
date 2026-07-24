@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Одиссей — группа предприятий безопасности. Пермь</title>
+<meta name="description" content="Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи. С 2009 года обеспечиваем безопасность в Перми и Пермском крае.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23C8102E'/%3E%3Cpath d='M12 4C9 4 6.8 6.2 6.8 9.2v4.4l1.5.8v3l1.5.8v-3.8h1.5V19l.7.4.7-.4v-4.6h1.5v3.8l1.5-.8v-3l1.5-.8V9.2C17.2 6.2 15 4 12 4Z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --bg:#101114; --cell:#16181C; --cell-hover:#1C1F24; --line:#26282E;
+  --ink:#F2F1EE; --muted:#9BA0A8;
+  --red:#C8102E; --red-hover:#E01236; --gold:#C9A227;
+  --display:'Oswald',sans-serif; --body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;font-weight:700}
+h1{font-size:clamp(44px,4.5vw,64px);line-height:1.02}
+h2{font-size:36px;line-height:1.05}
+h3{font-size:19px;line-height:1.15;font-weight:600}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.kicker{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.gold-note{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.gold-note::before{content:"";width:8px;height:8px;background:var(--gold);flex:none}
+
+/* бенто: единственный разрешённый способ общих границ */
+.bento{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.bento--seamtop{border-top:none}
+.cell{background:var(--cell);padding:32px;transition:background .2s}
+.cell:hover{background:var(--cell-hover)}
+.cell--static:hover{background:var(--cell)}
+.cell--compact{padding:24px}
+.cell--big{padding:48px}
+.cell-flex{display:flex;flex-direction:column}
+.cell-flex .bottom{margin-top:auto;padding-top:16px}
+.num{font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--red)}
+
+/* фото-ячейки */
+.photo-cell{position:relative;padding:0;overflow:hidden;min-height:280px}
+.photo-cell img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:grayscale(.85) contrast(1.05);transition:filter .4s}
+.photo-cell:hover img{filter:grayscale(0) contrast(1.02)}
+.photo-cap{position:absolute;left:0;bottom:0;background:var(--cell);border-top:1px solid var(--line);border-right:1px solid var(--line);padding:12px 16px;font-size:13px;color:var(--muted);z-index:2}
+.photo-cap b{display:block;font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:14px;color:var(--ink);letter-spacing:.04em}
+
+/* плейсхолдер по правилам §5 */
+.ph{border:1px dashed #3A3E46;background:repeating-linear-gradient(45deg,transparent 0 12px,#15171b 12px 24px);display:grid;place-items:center;min-height:280px;padding:24px}
+.ph span{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.8}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:16px 28px;cursor:pointer;border:none;transition:background .2s,color .2s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hover)}
+.btn-line{border:1px solid var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--ink);color:var(--bg)}
+
+/* прогресс + шапка */
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--red);width:0;z-index:99}
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;height:64px;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.06em;text-transform:uppercase}
+.logo-mark{width:36px;height:36px;background:var(--red);display:grid;place-items:center;flex:none}
+.logo small{display:block;font-family:var(--body);font-weight:600;font-size:8.5px;letter-spacing:.14em;color:var(--muted);white-space:nowrap;line-height:1.4}
+.logo>span:last-child{line-height:1.05}
+.nav-links{display:flex;gap:24px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-left:auto}
+.nav-links a{padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s;color:var(--muted)}
+.nav-links a:hover{border-color:var(--red);color:var(--ink)}
+.nav-phone{font-weight:600;font-size:14px;white-space:nowrap;text-align:right}
+.nav-phone span{display:block;font-weight:400;font-size:10.5px;color:var(--muted)}
+@media(max-width:1020px){.nav-links{display:none}}
+
+/* герой */
+.hero-grid{display:grid;grid-template-columns:7fr 5fr}
+.hero-left{padding:64px 48px 64px 0;background:var(--bg)}
+.hero-left .kicker{margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.hero-left .kicker::before{content:"";width:24px;height:2px;background:var(--red)}
+.hero-left h1{margin-bottom:12px}
+.hero-left h1 em{font-style:normal;color:var(--red)}
+.hero-sub{color:var(--muted);max-width:520px;margin-bottom:32px}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap}
+.hero-photo{position:relative;background:var(--cell);border-left:1px solid var(--line);min-height:560px;overflow:hidden}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%;filter:grayscale(.9) contrast(1.06)}
+.blob{position:absolute;z-index:2}
+.callout{position:absolute;z-index:3;max-width:216px;font-size:12px;background:var(--cell);border:1px solid var(--line);padding:10px 12px;line-height:1.45}
+.callout .t{font-family:var(--display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+.callout .d{color:var(--muted)}
+.callout::before{content:"";position:absolute;width:8px;height:8px;background:var(--red)}
+.callout .ln{position:absolute;background:var(--red);opacity:.7}
+.co-left::before{right:-25px;top:14px}
+.co-left .ln{right:-18px;top:17px;height:1.5px;width:14px}
+.co-right::before{left:-25px;top:14px}
+.co-right .ln{left:-18px;top:17px;height:1.5px;width:14px}
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-left{padding:48px 0}
+  .hero-photo{border-left:none;border-top:1px solid var(--line);min-height:520px;margin:0 -24px}
+  .callout{max-width:170px}
+}
+/* ≤700: выноски становятся бенто-ячейками 2×2 под фото */
+@media(max-width:700px){
+  .hero-photo{position:static;margin:0 -24px;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+  .hero-photo img{position:static;grid-column:span 2;height:400px;object-position:50% 12%}
+  .blob{display:none}
+  .callout{position:static;max-width:none;background:var(--cell);border:none;padding:16px}
+  .callout::before,.callout .ln{display:none}
+}
+
+/* статы под героем */
+.stat b{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;display:block;margin-bottom:8px}
+.stat b i{font-style:normal;color:var(--red);font-size:26px;vertical-align:top}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* секции-полотна */
+.canvas{margin-bottom:0}
+.sec-cell h2{margin-bottom:12px}
+.sec-cell .kicker{display:block;margin-bottom:8px}
+.sec-cell p{color:var(--muted);max-width:560px}
+
+/* направления */
+.dir h3{margin:8px 0 12px}
+.dir p{font-size:13px;color:var(--muted)}
+.dir .price{font-family:var(--display);font-weight:700;font-size:24px}
+.dir .price small{font-family:var(--body);font-weight:400;font-size:12px;color:var(--muted)}
+.dir .go{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--red)}
+
+/* услуги охраны */
+.svc{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:start}
+.svc>div{min-width:0}
+.svc h3{margin-bottom:12px}
+.svc p{font-size:13px;color:var(--muted)}
+.svc .tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1px solid var(--line);padding:6px 10px;white-space:nowrap}
+@media(max-width:560px){
+  .svc{grid-template-columns:44px 1fr}
+  .svc .tag{grid-column:2;justify-self:start}
+}
+
+/* тир */
+.pr-cell .nm{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:15px;letter-spacing:.05em;margin-bottom:12px}
+.pr-cell .pr{font-family:var(--display);font-weight:700;font-size:30px}
+.pr-cell p{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* тикер */
+.ticker-band{background:var(--red);color:#fff;overflow:hidden;padding:13px 0;border:1px solid var(--line);border-top:none}
+.ticker{display:flex;gap:48px;white-space:nowrap;font-family:var(--display);text-transform:uppercase;font-weight:600;letter-spacing:.1em;font-size:15px;animation:tick 34s linear infinite;width:max-content}
+.ticker span::after{content:"//";margin-left:48px;opacity:.45}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* таблица УЦ */
+.trow{display:grid;grid-template-columns:1.2fr 1.6fr .6fr;gap:16px;align-items:baseline}
+.trow.head{background:var(--cell-hover);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.trow .prog{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:15px;letter-spacing:.03em}
+.trow .who{font-size:13px;color:var(--muted)}
+.trow .cost{font-family:var(--display);font-weight:700;font-size:17px;text-align:right;white-space:nowrap}
+@media(max-width:760px){.trow{grid-template-columns:1fr}.trow .cost{text-align:left}.trow.head{display:none}}
+
+/* полиграф */
+.poly-big{font-family:var(--display);font-weight:700;font-size:clamp(56px,5.5vw,84px);line-height:1;color:var(--red)}
+.poly-big small{font-size:24px;color:var(--ink)}
+.list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.list li{padding-left:20px;position:relative;font-size:14px}
+.list li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--red)}
+
+/* контакты */
+.c-cell b{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px}
+.c-cell .v{font-family:var(--display);font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:.02em}
+.c-cell span{font-size:13px;color:var(--muted);display:block;margin-top:4px}
+.form input,.form select{width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;margin-bottom:16px;outline:none;transition:border-color .2s;appearance:none}
+.form input:focus,.form select:focus{border-color:var(--red)}
+.form input::placeholder{color:#5c6068}
+.form .btn{width:100%}
+.form small{display:block;text-align:center;color:var(--muted);font-size:11px;margin-top:12px}
+
+/* футер */
+footer{border-top:1px solid var(--line);padding:48px 0 32px;font-size:13px;color:var(--muted)}
+.f-grid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:32px}
+.f-col b{color:var(--ink);font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:13px;letter-spacing:.08em;display:block;margin-bottom:12px}
+.f-col div{margin-bottom:4px}
+.f-col a:hover{color:var(--ink)}
+.f-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px}
+
+/* сетки-раскладки */
+.span2{grid-column:span 2}
+.g-4{grid-template-columns:repeat(4,1fr)}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-2{grid-template-columns:repeat(2,1fr)}
+.g-hero-sec{grid-template-columns:1.2fr .8fr}
+.g-split{grid-template-columns:1fr 1fr}
+@media(max-width:1020px){.g-4{grid-template-columns:repeat(2,1fr)}.g-3{grid-template-columns:1fr}.g-hero-sec,.g-split{grid-template-columns:1fr}.span2{grid-column:auto}}
+@media(max-width:560px){.g-4{grid-template-columns:1fr}.g-2{grid-template-columns:1fr}}
+
+/* reveal: только fade (§6) */
+.rv{opacity:0;transition:opacity .5s ease}
+.rv.on{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transition:none}
+  .ticker{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">
+      <span class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9v6l2 1v4l2 1v-5h2v6l1 .5 1-.5v-6h2v5l2-1v-4l2-1V9c0-4-3-7-7-7Zm-4.5 8.5C7.5 7 9.5 5 12 5s4.5 2 4.5 5.5V13l-1.5.8V10c0-2-1.3-3-3-3s-3 1-3 3v3.8L7.5 13v-2.5Z" fill="#fff"/></svg>
+      </span>
+      <span>Одиссей<small>группа предприятий</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#napravleniya">Направления</a>
+      <a href="#ohrana">Охрана</a>
+      <a href="#tir">Тир</a>
+      <a href="#uc">Обучение</a>
+      <a href="#poligraf">Полиграф</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="nav-phone" href="tel:+73422066911">+7 (342) 20-66-911<span>многоканальный</span></a>
+  </div>
+</header>
+
+<!-- ГЕРОЙ -->
+<section class="wrap">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="kicker">Пермь и Пермский край · с 2009 года</div>
+      <h1>Безопасность, на&nbsp;которую можно <em>положиться</em></h1>
+      <p class="hero-sub">Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи. Четыре направления, одна группа, один стандарт работы.</p>
+      <div class="cta-row">
+        <a class="btn btn-red" href="#kontakty">Оставить заявку</a>
+        <a class="btn btn-line" href="#napravleniya">Все направления</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="фото/герой_охранник.jpg" alt="Сотрудник охраны Одиссей в экипировке">
+      <svg class="blob" style="top:5%;right:6%" width="120" height="90" viewBox="0 0 120 90"><g fill="#C8102E"><rect x="30" y="0" width="30" height="30"/><rect x="60" y="15" width="30" height="30"/><rect x="90" y="0" width="30" height="30"/><rect x="0" y="30" width="30" height="30"/><rect x="45" y="45" width="30" height="30"/></g></svg>
+      <svg class="blob" style="bottom:8%;left:4%" width="100" height="80" viewBox="0 0 100 80"><g fill="#C8102E"><rect x="0" y="0" width="26" height="26"/><rect x="26" y="26" width="26" height="26"/><rect x="0" y="52" width="26" height="26"/><rect x="60" y="40" width="26" height="26"/></g></svg>
+      <div class="callout co-left" style="top:8%;left:5%">
+        <div class="ln"></div><div class="t">Форменная экипировка</div>
+        <div class="d">сотрудник опознаётся с первого взгляда</div>
+      </div>
+      <div class="callout co-left" style="top:56%;left:5%">
+        <div class="ln"></div><div class="t">Радиосвязь</div>
+        <div class="d">постоянный канал с дежурной частью группы</div>
+      </div>
+      <div class="callout co-right" style="top:30%;right:4%">
+        <div class="ln"></div><div class="t">Кадровый состав</div>
+        <div class="d">бывшие сотрудники силовых структур</div>
+      </div>
+      <div class="callout co-right" style="top:74%;right:4%">
+        <div class="ln"></div><div class="t">Служебное оружие</div>
+        <div class="d">подготовка и зачёты в собственном тире</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- статы: бенто-строка, примыкает к герою -->
+  <div class="bento g-4 bento--seamtop rv">
+    <div class="cell cell--compact stat"><b data-count="15">15</b><span>лет на рынке безопасности</span></div>
+    <div class="cell cell--compact stat"><b>24/7</b><span>дежурная часть и выезд ГБР</span></div>
+    <div class="cell cell--compact stat"><b data-count="27">27</b><span>единиц оружия в собственном тире</span></div>
+    <div class="cell cell--compact stat"><b data-count="2011">2011</b><span>год: первый закрытый стрелковый клуб Перми</span></div>
+  </div>
+</section>
+
+<!-- НАПРАВЛЕНИЯ -->
+<section class="wrap canvas" id="napravleniya" style="margin-top:96px">
+  <div class="bento rv">
+    <div class="cell cell--big cell--static sec-cell">
+      <span class="kicker">Направления</span>
+      <h2>Четыре направления</h2>
+      <p>Каждым занимается отдельное предприятие группы. Цены открыты и указаны на сайте.</p>
+    </div>
+  </div>
+  <div class="bento g-4 bento--seamtop rv">
+    <a class="cell cell-flex dir" href="#ohrana">
+      <span class="num">01 /</span>
+      <h3>Охранное предприятие</h3>
+      <p>Физическая и пультовая охрана, телохранители, охрана мероприятий. Объекты любой сложности.</p>
+      <div class="bottom">
+        <div class="price">от 500 ₽ <small>/ мес, пультовая</small></div>
+        <div class="go" style="margin-top:8px">Подробнее →</div>
+      </div>
+    </a>
+    <a class="cell cell-flex dir" href="#tir">
+      <span class="num">02 /</span>
+      <h3>Стрелковый тир</h3>
+      <p>Первый закрытый частный стрелковый клуб Перми. Боевое оружие, инструкторы, музей техники.</p>
+      <div class="bottom">
+        <div class="price">от 2 680 ₽ <small>/ занятие</small></div>
+        <div class="go" style="margin-top:8px">Подробнее →</div>
+      </div>
+    </a>
+    <a class="cell cell-flex dir" href="#uc">
+      <span class="num">03 /</span>
+      <h3>Учебный центр</h3>
+      <p>Подготовка и повышение квалификации охранников 4–6 разрядов, курсы по оружию, экзамены.</p>
+      <div class="bottom">
+        <div class="price">от 1 200 ₽ <small>/ программа</small></div>
+        <div class="go" style="margin-top:8px">Подробнее →</div>
+      </div>
+    </a>
+    <a class="cell cell-flex dir" href="#poligraf">
+      <span class="num">04 /</span>
+      <h3>Детекция лжи</h3>
+      <p>Проверки на полиграфе при приёме на работу и служебных расследованиях. Сертифицированные специалисты.</p>
+      <div class="bottom">
+        <div class="price">5 000 ₽ <small>/ человек</small></div>
+        <div class="go" style="margin-top:8px">Подробнее →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ОХРАНА -->
+<section class="wrap canvas" id="ohrana" style="margin-top:96px">
+  <div class="bento rv">
+    <div class="cell cell--big cell--static sec-cell">
+      <span class="kicker">ООО ЧОП «Одиссей-СБ»</span>
+      <h2>Охранное предприятие</h2>
+      <p>Кадровая основа — бывшие сотрудники силовых структур. Дежурная часть отвечает круглосуточно.</p>
+    </div>
+  </div>
+  <div class="bento g-split bento--seamtop rv">
+    <div style="display:grid;gap:1px;background:var(--line)">
+      <div class="cell svc">
+        <span class="num">01</span>
+        <div><h3>Физическая охрана</h3><p>Посты на объектах: офисы, склады, ТЦ, стройплощадки. Подбор режима под объект.</p></div>
+        <span class="tag">по объекту</span>
+      </div>
+      <div class="cell svc">
+        <span class="num">02</span>
+        <div><h3>Пультовая охрана</h3><p>Тревожная кнопка и охранная сигнализация с выездом группы быстрого реагирования.</p></div>
+        <span class="tag">от 500 ₽/мес</span>
+      </div>
+      <div class="cell svc">
+        <span class="num">03</span>
+        <div><h3>Личный телохранитель</h3><p>Сопровождение и личная охрана. Конфиденциально, по индивидуальному плану.</p></div>
+        <span class="tag">индивидуально</span>
+      </div>
+      <div class="cell svc">
+        <span class="num">04</span>
+        <div><h3>Охрана мероприятий</h3><p>Концерты, спортивные и корпоративные события: от досмотра до сопровождения.</p></div>
+        <span class="tag">по смете</span>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <img src="фото/охрана_рация.jpg" alt="Сотрудник охраны на объекте">
+      <div class="photo-cap"><b>Дежурная часть 24/7</b>+7 (342) 21-41-911 · реакция на тревогу круглосуточно</div>
+    </div>
+  </div>
+</section>
+
+<!-- ТИР -->
+<section class="wrap canvas" id="tir" style="margin-top:96px">
+  <div class="bento g-hero-sec rv">
+    <div class="cell cell--big cell--static sec-cell">
+      <span class="kicker">ССК «Одиссей» · первый закрытый клуб Перми</span>
+      <h2>Боевой стрелковый тир</h2>
+      <p>Стрельба из боевого оружия под руководством инструкторов, метание ножей, экспозиции оружия и техники времён Великой Отечественной. Работаем по курсам стрельб КС МВД РФ.</p>
+    </div>
+    <div class="photo-cell">
+      <img src="фото/тир_сетка.jpg" alt="Стрелковая галерея тира Одиссей">
+      <div class="photo-cap"><b>Галерея 30 метров</b>метание ножей · экспозиции оружия</div>
+    </div>
+  </div>
+  <div class="bento g-3 bento--seamtop rv">
+    <div class="cell cell-flex pr-cell">
+      <div class="nm">Стрельба из пистолета</div>
+      <div class="pr">2 680 ₽</div>
+      <p>занятие с инструктором, патроны считаются отдельно (от 150 ₽)</p>
+    </div>
+    <div class="cell cell-flex pr-cell">
+      <div class="nm">Винтовка / автомат</div>
+      <div class="pr">3 680 ₽</div>
+      <p>длинноствольное оружие, стрелковая галерея 30 метров</p>
+    </div>
+    <div class="cell cell-flex pr-cell">
+      <div class="nm">Подарочные карты</div>
+      <div class="pr">от 5 680 ₽</div>
+      <p>курсы «Базовый», «Универсальный стрелок», «Профессионал»</p>
+    </div>
+  </div>
+</section>
+
+<!-- тикер техники -->
+<div class="wrap" style="margin-top:96px">
+  <div class="ticker-band" aria-hidden="true">
+    <div class="ticker">
+      <span>БРДМ-2</span><span>ГАЗ-67</span><span>ГАЗ-66</span><span>ГАЗ-69</span><span>БА-64</span><span>М-72</span><span>Миномёт ПМ-38</span><span>Пушка 53-К</span><span>Пулемёт Максим</span><span>ППШ</span><span>ТПК-967</span><span>Кухня КП-48</span>
+      <span>БРДМ-2</span><span>ГАЗ-67</span><span>ГАЗ-66</span><span>ГАЗ-69</span><span>БА-64</span><span>М-72</span><span>Миномёт ПМ-38</span><span>Пушка 53-К</span><span>Пулемёт Максим</span><span>ППШ</span><span>ТПК-967</span><span>Кухня КП-48</span>
+    </div>
+  </div>
+
+  <!-- МУЗЕЙ: бенто без отступа от тикера -->
+  <div class="bento g-3 bento--seamtop rv" id="muzey">
+    <div class="cell cell--big cell--static cell-flex sec-cell">
+      <span class="kicker">Изюминка группы</span>
+      <h2>Музей военной техники</h2>
+      <p>Одиннадцать единиц на ходу: от бронеавтомобиля БА-64 образца 1943 года до БРДМ-2. Техника участвует в парадах, выставках и экскурсиях.</p>
+      <div class="bottom"><a class="btn btn-line" href="#kontakty">Записаться на экскурсию</a></div>
+    </div>
+    <div class="photo-cell">
+      <img src="фото/техника_брдм.jpg" alt="БРДМ-2 из коллекции музея">
+      <div class="photo-cap"><b>БРДМ-2</b>образца 1981 года</div>
+    </div>
+    <div class="photo-cell">
+      <img src="фото/техника_газ67.jpg" alt="ГАЗ-67 образца 1943 года">
+      <div class="photo-cap"><b>ГАЗ-67</b>образца 1943 года</div>
+    </div>
+  </div>
+</div>
+
+<!-- УЧЕБНЫЙ ЦЕНТР -->
+<section class="wrap canvas" id="uc" style="margin-top:96px">
+  <div class="bento g-hero-sec rv">
+    <div class="cell cell--big cell--static sec-cell">
+      <span class="kicker">ЧУ ДПО «УЦ Одиссей»</span>
+      <h2>Учебный центр</h2>
+      <p>Лицензия на образовательную деятельность, свой тир для практики, экзамены на месте. Периодическую проверку принимают сотрудники Росгвардии.</p>
+      <div class="gold-note" style="margin-top:16px">Лицензия № 6801 от 14.07.2020, Минобрнауки Пермского края</div>
+    </div>
+    <div class="ph"><span>Нужен материал:<br>фото учебного класса УЦ</span></div>
+  </div>
+  <div class="bento bento--seamtop rv">
+    <div class="cell cell--compact trow head cell--static"><div>Программа</div><div>Для кого</div><div style="text-align:right">Стоимость</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Профподготовка охранников</div><div class="who">4–6 разряд, с квалификационным экзаменом</div><div class="cost">2 700 – 4 200 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Повышение квалификации</div><div class="who">4–6 разряд</div><div class="cost">1 500 – 1 700 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Периодическая проверка</div><div class="who">действующие охранники</div><div class="cost">1 200 – 1 400 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Обращение с оружием</div><div class="who">владельцы гражданского оружия, 1 день, можно в выходные</div><div class="cost">2 000 – 4 000 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Подготовка руководителей ЧОП</div><div class="who">впервые назначаемые и продление каждые 5 лет</div><div class="cost">4 000 – 8 000 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Консультирование</div><div class="who">помощь с документами, физлица и юрлица</div><div class="cost">от 300 ₽</div></div>
+  </div>
+</section>
+
+<!-- ПОЛИГРАФ -->
+<section class="wrap canvas" id="poligraf" style="margin-top:96px">
+  <div class="bento g-3 rv">
+    <div class="cell cell--big cell--static sec-cell span2">
+      <span class="kicker">Техцентр «Одиссей»</span>
+      <h2>Центр детекции лжи</h2>
+      <ul class="list" style="margin-top:16px">
+        <li>Проверка кандидатов при приёме на ответственные должности</li>
+        <li>Служебные расследования: хищения, утечки, злоупотребления</li>
+        <li>Профессиональный полиграф «РИФ», сертифицированные специалисты</li>
+        <li>Тестирование одного человека — 5 000 ₽</li>
+      </ul>
+    </div>
+    <div class="cell cell--static" style="display:flex;flex-direction:column;justify-content:center">
+      <div class="poly-big">95–99<small> %</small></div>
+      <span style="font-size:13px;color:var(--muted);margin-top:12px">достоверность результатов при работе подготовленного специалиста</span>
+    </div>
+  </div>
+  <div class="bento bento--seamtop rv">
+    <div class="ph" style="min-height:180px"><span>Нужен материал:<br>фото прибора полиграфа «РИФ»</span></div>
+  </div>
+</section>
+
+<!-- ДОБРЫЕ ДЕЛА -->
+<section class="wrap canvas" id="dela" style="margin-top:96px">
+  <div class="bento g-3 rv">
+    <div class="cell cell--big cell--static sec-cell">
+      <span class="kicker">АНО ВПК «Патриот»</span>
+      <h2>Добрые дела</h2>
+      <p>Больше двадцати бесплатных экскурсий для школ Перми: тир, музей техники, полевая кухня. Военно-патриотический клуб работает круглый год.</p>
+    </div>
+    <div class="photo-cell">
+      <img src="фото/экскурсия_улица.jpg" alt="Экскурсия школьников на полигоне">
+      <div class="photo-cap"><b>Экскурсии школам</b>тир · музей · полигон</div>
+    </div>
+    <div class="photo-cell">
+      <img src="фото/кухня_полевая.jpg" alt="Полевая кухня КП-48 на мероприятии">
+      <div class="photo-cap"><b>Полевая кухня КП-48</b>образца 1948 года, на ходу</div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="wrap canvas" id="kontakty" style="margin-top:96px">
+  <div class="bento rv">
+    <div class="cell cell--big cell--static sec-cell">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+      <p>Пермь, ул. Стахановская, 54Л · остановки «Манеж Спартак», «Снайперов», «Стахановская»</p>
+    </div>
+  </div>
+  <div class="bento g-split bento--seamtop rv">
+    <div style="display:grid;gap:1px;background:var(--line)">
+      <div class="cell c-cell"><b>Охрана</b><div class="v"><a href="tel:+73422066911">+7 (342) 20-66-911</a></div><span>Пн–Пт 9:00–18:00 · дежурная часть круглосуточно</span></div>
+      <div class="cell c-cell"><b>Тир</b><div class="v"><a href="tel:+73422066161">+7 (342) 20-66-161</a></div><span>Ср–Вс 12:00–20:00</span></div>
+      <div class="cell c-cell"><b>Учебный центр</b><div class="v"><a href="tel:+73422061911">+7 (342) 20-61-911</a></div><span>Пн–Пт 9:00–18:00</span></div>
+      <div class="cell c-cell"><b>Почта</b><div class="v" style="text-transform:none"><a href="mailto:odyssey.security@mail.ru">odyssey.security@mail.ru</a></div></div>
+    </div>
+    <form class="cell cell--big cell--static form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Заявка отправлена'">
+      <h3 style="margin-bottom:8px">Оставить заявку</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Перезвоним в рабочее время, подскажем по цене и срокам.</p>
+      <input type="text" placeholder="Как вас зовут" required>
+      <input type="tel" placeholder="+7 (___) ___-__-__" required>
+      <select>
+        <option>Охрана объекта</option>
+        <option>Стрелковый тир</option>
+        <option>Обучение в УЦ</option>
+        <option>Проверка на полиграфе</option>
+        <option>Экскурсия / клуб «Патриот»</option>
+      </select>
+      <button class="btn btn-red" type="submit">Отправить</button>
+      <small>Прототип: форма не подключена к серверу</small>
+    </form>
+  </div>
+</section>
+
+<footer style="margin-top:96px">
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-col"><b>Группа предприятий</b>
+        <div>ООО ЧОП «Одиссей-СБ» — охрана</div>
+        <div>ЧУ ДПО «УЦ Одиссей» — обучение</div>
+        <div>ПРСОО ССК «Одиссей» — стрелковый клуб</div>
+        <div>ООО Техцентр «Одиссей» — полиграф</div>
+        <div>АНО ВПК «Патриот» — работа с молодёжью</div>
+      </div>
+      <div class="f-col"><b>Навигация</b>
+        <div><a href="#napravleniya">Направления</a></div>
+        <div><a href="#tir">Тир и музей</a></div>
+        <div><a href="#uc">Учебный центр</a></div>
+        <div><a href="#kontakty">Контакты</a></div>
+      </div>
+      <div class="f-col"><b>Дежурная часть</b>
+        <div><a href="tel:+73422141911">+7 (342) 21-41-911</a></div>
+        <div><a href="tel:+79223332911">+7 (922) 333-29-11</a></div>
+        <div>круглосуточно</div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <div>© 2009–2026 Группа предприятий «Одиссей», Пермь</div>
+      <div>Прототип редизайна</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduced){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=+el.dataset.count,t0=performance.now();
+    const step=t=>{const p=Math.min((t-t0)/1200,1);el.textContent=Math.round(target*(p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2));if(p<1)requestAnimationFrame(step)};
+    requestAnimationFrame(step);cio.unobserve(el);
+  }),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+}else{
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
+}
+</script>
+</body>
+</html>
