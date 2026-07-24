@@ -7,6 +7,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 NAV = [
     ("index.html", "Главная"),
+    ("o-nas.html", "О нас"),
     ("ohrana.html", "Охрана"),
     ("tir.html", "Тир"),
     ("muzey.html", "Музей"),
@@ -15,11 +16,9 @@ NAV = [
     ("dela.html", "Добрые дела"),
 ]
 
-FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23C8102E'/%3E"
-           "%3Cpath d='M12 4C9 4 6.8 6.2 6.8 9.2v4.4l1.5.8v3l1.5.8v-3.8h1.5V19l.7.4.7-.4v-4.6h1.5v3.8l1.5-.8v-3l1.5-.8V9.2C17.2 6.2 15 4 12 4Z' fill='%23fff'/%3E%3C/svg%3E")
+FAVICON = "лого/favicon.png"
 
-LOGO_SVG = ('<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9v6l2 1v4l2 1v-5h2v6l1 .5 1-.5v-6h2v5l2-1v-4l2-1V9c0-4-3-7-7-7Z'
-            'm-4.5 8.5C7.5 7 9.5 5 12 5s4.5 2 4.5 5.5V13l-1.5.8V10c0-2-1.3-3-3-3s-3 1-3 3v3.8L7.5 13v-2.5Z" fill="#fff"/></svg>')
+LOGO_SVG = '<img src="лого/одиссей-щит.png" alt="" width="30" height="37">'
 
 SCRIPT = """<script>
 const bar=document.getElementById('progress');
