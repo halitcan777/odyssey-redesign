@@ -84,6 +84,22 @@ header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px s
 .co-left .ln{right:-18px;top:17px;height:1.5px;width:14px}
 .co-right::before{left:-25px;top:14px}
 .co-right .ln{left:-18px;top:17px;height:1.5px;width:14px}
+
+/* выплывание кубиков и выносок при загрузке */
+.hero-photo .blob,.hero-photo .callout{opacity:0}
+@keyframes cubeIn{0%{opacity:0;transform:scale(.5) rotate(-10deg)}60%{opacity:1;transform:scale(1.08) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes calloutInL{0%{opacity:0;transform:translate(-18px,6px)}100%{opacity:1;transform:translate(0,0)}}
+@keyframes calloutInR{0%{opacity:0;transform:translate(18px,6px)}100%{opacity:1;transform:translate(0,0)}}
+.hero-photo.in .blob{animation:cubeIn .65s cubic-bezier(.22,1,.36,1) both}
+.hero-photo.in .callout.co-left{animation:calloutInL .6s cubic-bezier(.22,1,.36,1) both}
+.hero-photo.in .callout.co-right{animation:calloutInR .6s cubic-bezier(.22,1,.36,1) both}
+.hero-photo.in .blob:nth-of-type(1){animation-delay:.1s}
+.hero-photo.in .blob:nth-of-type(2){animation-delay:.3s}
+.hero-photo.in .callout:nth-of-type(1){animation-delay:.35s}
+.hero-photo.in .callout:nth-of-type(2){animation-delay:.65s}
+.hero-photo.in .callout:nth-of-type(3){animation-delay:.5s}
+.hero-photo.in .callout:nth-of-type(4){animation-delay:.8s}
+@media(prefers-reduced-motion:reduce){.hero-photo .blob,.hero-photo .callout{opacity:1;animation:none}}
 @media(max-width:1020px){
   .hero-grid{grid-template-columns:1fr}
   .hero-left{padding:48px 0}
@@ -97,6 +113,7 @@ header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px s
   .blob{display:none}
   .callout{position:static;max-width:none;background:var(--cell);border:none;padding:16px}
   .callout::before,.callout .ln{display:none}
+  .hero-photo .callout{opacity:1;animation:none}
 }
 
 /* статы под героем */
