@@ -82,16 +82,16 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .cta-row{display:flex;gap:16px;flex-wrap:wrap}
 .hero-photo{position:relative;background:var(--cell);border-left:1px solid var(--line);min-height:560px;overflow:hidden}
 
-/* десктоп: герой (фото+текст+статы) занимает экран под шапкой, с отступом 96px снизу (системный шаг — тот же, что между полотнами секций, §3) */
+/* десктоп: герой (фото+текст+статы) занимает экран под шапкой, с отступом 92px снизу (равен высоте шапки — симметрия сверху/снизу) */
 @media(min-width:1021px){
-  header + section.wrap{display:flex;flex-direction:column;min-height:calc(100vh - 92px - 96px)}
+  header + section.wrap{display:flex;flex-direction:column;min-height:calc(100vh - 92px - 92px)}
   header + section.wrap .hero-grid{flex:1;min-height:0}
   .hero-left{display:flex;flex-direction:column;justify-content:center}
   .hero-left h1{font-size:clamp(48px,5vw,76px)}
   .hero-sub{font-size:21px;max-width:640px}
   .hero-photo{min-height:0}
 }
-/* на невысоких окнах (реальный браузер с панелями, не голый vh) контент героя не помещается в бюджет 96px снизу — компактнее версия, чтобы отступ не пропадал */
+/* на невысоких окнах (реальный браузер с панелями, не голый vh) контент героя не помещается в бюджет 92px снизу — компактнее версия, чтобы отступ не пропадал */
 @media(min-width:1021px) and (max-height:920px){
   .hero-left{padding-top:24px;padding-bottom:24px}
   .hero-left h1{font-size:clamp(30px,3.6vw,44px);margin-bottom:6px}
