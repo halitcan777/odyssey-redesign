@@ -76,15 +76,11 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .hero-photo{position:relative;background:var(--cell);border-left:1px solid var(--line);min-height:560px;overflow:hidden}
 .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%;filter:grayscale(.9) contrast(1.06)}
 .blob{position:absolute;z-index:2}
-.callout{position:absolute;z-index:3;max-width:216px;font-size:12px;background:var(--cell);border:1px solid var(--line);padding:10px 12px;line-height:1.45}
-.callout .t{font-family:var(--display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
-.callout .d{color:var(--muted)}
-.callout::before{content:"";position:absolute;width:8px;height:8px;background:var(--red)}
-.callout .ln{position:absolute;background:var(--red);opacity:.7}
-.co-left::before{right:-25px;top:14px}
-.co-left .ln{right:-18px;top:17px;height:1.5px;width:14px}
-.co-right::before{left:-25px;top:14px}
-.co-right .ln{left:-18px;top:17px;height:1.5px;width:14px}
+.callout{position:absolute;z-index:3;max-width:236px;font-size:13px;background:rgba(16,17,20,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(242,241,238,.14);border-left:3px solid var(--red);padding:14px 18px;line-height:1.5}
+.callout .t{font-family:var(--display);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;color:var(--ink)}
+.callout .d{color:var(--muted);font-size:12.5px}
+.callout .ln{display:none}
+.co-right{border-left:none;border-right:3px solid var(--red)}
 
 /* выплывание кубиков и выносок при загрузке */
 .hero-photo .blob,.hero-photo .callout{opacity:0}
