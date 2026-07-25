@@ -52,10 +52,10 @@ h3{font-size:19px;line-height:1.15;font-weight:600}
 #progress{position:fixed;top:0;left:0;height:3px;background:var(--red);width:0;z-index:99}
 header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;height:92px;gap:32px}
-.logo{display:flex;align-items:center;gap:14px;font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.06em;text-transform:uppercase}
-.logo-mark{width:40px;flex:none;display:grid;place-items:center}
+.logo{display:flex;align-items:center;gap:16px;font-family:var(--display);font-weight:700;font-size:34px;letter-spacing:.06em;text-transform:uppercase}
+.logo-mark{width:60px;flex:none;display:grid;place-items:center}
 .logo-mark img{width:100%;height:auto;display:block}
-.logo small{display:block;font-family:var(--body);font-weight:600;font-size:10.5px;letter-spacing:.14em;color:var(--muted);white-space:nowrap;line-height:1.4}
+.logo small{display:block;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--muted);white-space:nowrap;line-height:1.4}
 .logo>span:last-child{line-height:1.05}
 .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-left:auto}
 .nav-links a{padding:8px 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s;color:var(--ink)}
