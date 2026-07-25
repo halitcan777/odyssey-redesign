@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('odyssey-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Добрые дела — экскурсии и клуб «Патриот» | Одиссей Пермь</title>
 <meta name="description" content="Бесплатные экскурсии для школьников Перми: стрелковый тир, музей военной техники, полевая кухня. Клуб «Патриот».">
@@ -28,6 +29,10 @@
       <a href="dela.html" class="active">Добрые дела</a>
     </nav>
     <a class="nav-phone" href="tel:+73422066911">+7 (342) 20-66-911<span>многоканальный</span></a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
     <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -161,6 +166,12 @@
 const bar=document.getElementById('progress');
 addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
 document.querySelector('.burger')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')});
+document.getElementById('themeToggle')?.addEventListener('click',()=>{
+  const root=document.documentElement;
+  const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+  root.setAttribute('data-theme',next);
+  try{localStorage.setItem('odyssey-theme',next)}catch(e){}
+});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduced){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
