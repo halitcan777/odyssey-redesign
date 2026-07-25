@@ -55,7 +55,7 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.06em;text-transform:uppercase}
 .logo-mark{width:42px;flex:none;display:grid;place-items:center}
 .logo-mark img{width:100%;height:auto;display:block}
-.logo small{display:block;font-family:var(--body);font-weight:600;font-size:8.5px;letter-spacing:.14em;color:var(--muted);white-space:nowrap;line-height:1.4}
+.logo small{display:block;margin-top:4px;font-family:var(--body);font-weight:600;font-size:8.5px;letter-spacing:.14em;color:var(--muted);white-space:nowrap;line-height:1.4}
 .logo>span:last-child{line-height:1.05}
 .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-left:auto}
 .nav-links a{padding:8px 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s;color:var(--ink)}
@@ -114,9 +114,10 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 }
 
 /* статы под героем */
-.stat b{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;display:block;margin-bottom:8px}
-.stat b i{font-style:normal;color:var(--red);font-size:26px;vertical-align:top}
-.stat span{font-size:13px;color:var(--muted)}
+.stat{padding:18px 24px}
+.stat b{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;display:block;margin-bottom:6px}
+.stat b i{font-style:normal;color:var(--red);font-size:18px;vertical-align:top}
+.stat span{font-size:12.5px;color:var(--muted)}
 
 /* секции-полотна */
 .canvas{margin-bottom:0}
