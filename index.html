@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('odyssey-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Одиссей — группа предприятий безопасности. Пермь</title>
 <meta name="description" content="Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи. С 2009 года обеспечиваем безопасность в Перми и Пермском крае.">
@@ -37,6 +38,10 @@
       <a href="#kontakty">Контакты</a>
     </nav>
     <a class="nav-phone" href="tel:+73422066911">+7 (342) 20-66-911<span>многоканальный</span></a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
     <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -45,9 +50,9 @@
 <section class="wrap">
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="kicker">Пермь и Пермский край · с 2009 года</div>
-      <h1>Безопасность, на которую можно <em>положиться</em></h1>
-      <p class="hero-sub">Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи. Четыре направления, одна группа, один стандарт работы.</p>
+      <div class="kicker">Пермь и Пермский край · с 2009 года</div>
+      <h1>Безопасность, на которую можно <em>положиться</em></h1>
+      <p class="hero-sub">Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи. Четыре направления, одна группа, один стандарт работы.</p>
       <div class="cta-row">
         <a class="btn btn-red" href="#kontakty">Оставить заявку</a>
         <a class="btn btn-line" href="#napravleniya">Все направления</a>
@@ -55,15 +60,15 @@
     </div>
     <div class="hero-photo">
       <img src="фото/герой_охранник_meshy.jpg" alt="Сотрудник охраны Одиссей в экипировке">
-      <svg class="blob" style="top:5%;right:6%" width="120" height="90" viewBox="0 0 120 90"><g fill="#C8102E"><rect x="30" y="0" width="30" height="30"/><rect x="60" y="15" width="30" height="30"/><rect x="90" y="0" width="30" height="30"/><rect x="0" y="30" width="30" height="30"/><rect x="45" y="45" width="30" height="30"/></g></svg>
-      <svg class="blob" style="bottom:8%;left:4%" width="100" height="80" viewBox="0 0 100 80"><g fill="#C8102E"><rect x="0" y="0" width="26" height="26"/><rect x="26" y="26" width="26" height="26"/><rect x="0" y="52" width="26" height="26"/><rect x="60" y="40" width="26" height="26"/></g></svg>
+      <svg class="blob" style="top:5%;right:6%" width="120" height="90" viewBox="0 0 120 90"><g fill="#93221B"><rect x="30" y="0" width="30" height="30"/><rect x="60" y="15" width="30" height="30"/><rect x="90" y="0" width="30" height="30"/><rect x="0" y="30" width="30" height="30"/><rect x="45" y="45" width="30" height="30"/></g></svg>
+      <svg class="blob" style="bottom:8%;left:4%" width="100" height="80" viewBox="0 0 100 80"><g fill="#93221B"><rect x="0" y="0" width="26" height="26"/><rect x="26" y="26" width="26" height="26"/><rect x="0" y="52" width="26" height="26"/><rect x="60" y="40" width="26" height="26"/></g></svg>
       <div class="callout co-left" style="top:8%;left:5%">
         <div class="ln"></div><div class="t">Форменная экипировка</div>
-        <div class="d">сотрудник опознаётся с первого взгляда</div>
+        <div class="d">сотрудник опознаётся с первого взгляда</div>
       </div>
       <div class="callout co-left" style="top:56%;left:5%">
         <div class="ln"></div><div class="t">Радиосвязь</div>
-        <div class="d">постоянный канал с дежурной частью группы</div>
+        <div class="d">постоянный канал с дежурной частью группы</div>
       </div>
       <div class="callout co-right" style="top:30%;right:4%">
         <div class="ln"></div><div class="t">Кадровый состав</div>
@@ -71,16 +76,16 @@
       </div>
       <div class="callout co-right" style="top:74%;right:4%">
         <div class="ln"></div><div class="t">Служебное оружие</div>
-        <div class="d">подготовка и зачёты в собственном тире</div>
+        <div class="d">подготовка и зачёты в собственном тире</div>
       </div>
     </div>
   </div>
 
   <!-- статы: бенто-строка под героем, рамка со всех сторон -->
   <div class="bento g-4 rv">
-    <div class="cell cell--compact stat"><b data-count="15">15</b><span>лет на рынке безопасности</span></div>
-    <div class="cell cell--compact stat"><b>24/7</b><span>дежурная часть и выезд ГБР</span></div>
-    <div class="cell cell--compact stat"><b data-count="26">26</b><span>единиц оружия в собственном тире</span></div>
+    <div class="cell cell--compact stat"><b data-count="15">15</b><span>лет на рынке безопасности</span></div>
+    <div class="cell cell--compact stat"><b>24/7</b><span>дежурная часть и выезд ГБР</span></div>
+    <div class="cell cell--compact stat"><b data-count="26">26</b><span>единиц оружия в собственном тире</span></div>
     <div class="cell cell--compact stat"><b data-count="2011">2011</b><span>год: первый закрытый стрелковый клуб Перми</span></div>
   </div>
 </section>
@@ -91,16 +96,16 @@
     <div class="cell cell--big cell--static sec-cell">
       <span class="kicker">Направления</span>
       <h2>Четыре направления</h2>
-      <p>Каждым занимается отдельное предприятие группы. Цены открыты и указаны на сайте.</p>
+      <p>Каждым занимается отдельное предприятие группы. Цены открыты и указаны на сайте.</p>
     </div>
   </div>
   <div class="bento g-4 bento--seamtop rv">
     <a class="cell cell-flex dir" href="ohrana.html">
       <span class="num">01 /</span>
       <h3>Охранное предприятие</h3>
-      <p>Физическая и пультовая охрана, телохранители, охрана мероприятий. Объекты любой сложности.</p>
+      <p>Физическая и пультовая охрана, телохранители, охрана мероприятий. Объекты любой сложности.</p>
       <div class="bottom">
-        <div class="price">от 500 ₽ <small>/ мес, пультовая</small></div>
+        <div class="price">от 500 ₽ <small>/ мес, пультовая</small></div>
         <div class="go" style="margin-top:8px">Подробнее →</div>
       </div>
     </a>
@@ -109,23 +114,23 @@
       <h3>Стрелковый тир</h3>
       <p>Первый закрытый частный стрелковый клуб Перми. Боевое оружие, инструкторы, музей техники.</p>
       <div class="bottom">
-        <div class="price">от 2 680 ₽ <small>/ занятие</small></div>
+        <div class="price">от 2 680 ₽ <small>/ занятие</small></div>
         <div class="go" style="margin-top:8px">Подробнее →</div>
       </div>
     </a>
     <a class="cell cell-flex dir" href="uc.html">
       <span class="num">03 /</span>
       <h3>Учебный центр</h3>
-      <p>Подготовка и повышение квалификации охранников 4–6 разрядов, курсы по оружию, экзамены.</p>
+      <p>Подготовка и повышение квалификации охранников 4–6 разрядов, курсы по оружию, экзамены.</p>
       <div class="bottom">
-        <div class="price">от 1 200 ₽ <small>/ программа</small></div>
+        <div class="price">от 1 200 ₽ <small>/ программа</small></div>
         <div class="go" style="margin-top:8px">Подробнее →</div>
       </div>
     </a>
     <a class="cell cell-flex dir" href="poligraf.html">
       <span class="num">04 /</span>
       <h3>Детекция лжи</h3>
-      <p>Проверки на полиграфе при приёме на работу и служебных расследованиях. Сертифицированные специалисты.</p>
+      <p>Проверки на полиграфе при приёме на работу и служебных расследованиях. Сертифицированные специалисты.</p>
       <div class="bottom">
         <div class="price">5 000 ₽ <small>/ человек</small></div>
         <div class="go" style="margin-top:8px">Подробнее →</div>
@@ -140,7 +145,7 @@
     <div class="cell cell--big cell--static sec-cell">
       <span class="kicker">ООО ЧОП «Одиссей-СБ»</span>
       <h2>Охранное предприятие</h2>
-      <p>Кадровая основа — бывшие сотрудники силовых структур. Дежурная часть отвечает круглосуточно.</p>
+      <p>Кадровая основа — бывшие сотрудники силовых структур. Дежурная часть отвечает круглосуточно.</p>
       <div style="margin-top:16px"><a class="btn btn-line" href="ohrana.html">Подробнее об охране →</a></div>
     </div>
   </div>
@@ -148,28 +153,28 @@
     <div style="display:grid;gap:1px;background:var(--line)">
       <div class="cell svc">
         <span class="num">01</span>
-        <div><h3>Физическая охрана</h3><p>Посты на объектах: офисы, склады, ТЦ, стройплощадки. Подбор режима под объект.</p></div>
-        <span class="tag">по объекту</span>
+        <div><h3>Физическая охрана</h3><p>Посты на объектах: офисы, склады, ТЦ, стройплощадки. Подбор режима под объект.</p></div>
+        <span class="tag">по объекту</span>
       </div>
       <div class="cell svc">
         <span class="num">02</span>
-        <div><h3>Пультовая охрана</h3><p>Тревожная кнопка и охранная сигнализация с выездом группы быстрого реагирования.</p></div>
-        <span class="tag">от 500 ₽/мес</span>
+        <div><h3>Пультовая охрана</h3><p>Тревожная кнопка и охранная сигнализация с выездом группы быстрого реагирования.</p></div>
+        <span class="tag">от 500 ₽/мес</span>
       </div>
       <div class="cell svc">
         <span class="num">03</span>
-        <div><h3>Личный телохранитель</h3><p>Сопровождение и личная охрана. Конфиденциально, по индивидуальному плану.</p></div>
+        <div><h3>Личный телохранитель</h3><p>Сопровождение и личная охрана. Конфиденциально, по индивидуальному плану.</p></div>
         <span class="tag">индивидуально</span>
       </div>
       <div class="cell svc">
         <span class="num">04</span>
-        <div><h3>Охрана мероприятий</h3><p>Концерты, спортивные и корпоративные события: от досмотра до сопровождения.</p></div>
-        <span class="tag">по смете</span>
+        <div><h3>Охрана мероприятий</h3><p>Концерты, спортивные и корпоративные события: от досмотра до сопровождения.</p></div>
+        <span class="tag">по смете</span>
       </div>
     </div>
     <a class="photo-cell" href="ohrana.html">
       <img src="фото/охрана_рация.jpg" alt="Сотрудник охраны на объекте">
-      <div class="photo-cap"><b>Дежурная часть 24/7</b>+7 (342) 21-41-911 · реакция на тревогу круглосуточно</div>
+      <div class="photo-cap"><b>Дежурная часть 24/7</b>+7 (342) 21-41-911 · реакция на тревогу круглосуточно</div>
     </a>
   </div>
 </section>
@@ -180,28 +185,28 @@
     <div class="cell cell--big cell--static sec-cell">
       <span class="kicker">ССК «Одиссей» · первый закрытый клуб Перми</span>
       <h2>Боевой стрелковый тир</h2>
-      <p>Стрельба из боевого оружия под руководством инструкторов, метание ножей, экспозиции оружия и техники времён Великой Отечественной. Работаем по курсам стрельб КС МВД РФ.</p>
+      <p>Стрельба из боевого оружия под руководством инструкторов, метание ножей, экспозиции оружия и техники времён Великой Отечественной. Работаем по курсам стрельб КС МВД РФ.</p>
       <div style="margin-top:16px"><a class="btn btn-line" href="tir.html">Подробнее о тире →</a></div>
     </div>
     <a class="photo-cell" href="tir.html">
       <img src="фото/тир_сетка.jpg" alt="Стрелковая галерея тира Одиссей">
-      <div class="photo-cap"><b>Галерея 30 метров</b>метание ножей · экспозиции оружия</div>
+      <div class="photo-cap"><b>Галерея 30 метров</b>метание ножей · экспозиции оружия</div>
     </a>
   </div>
   <div class="bento g-3 bento--seamtop rv">
     <div class="cell cell-flex pr-cell">
-      <div class="nm">Стрельба из пистолета</div>
+      <div class="nm">Стрельба из пистолета</div>
       <div class="pr">2 680 ₽</div>
-      <p>занятие с инструктором, патроны считаются отдельно (от 150 ₽)</p>
+      <p>занятие с инструктором, патроны считаются отдельно (от 150 ₽)</p>
     </div>
     <div class="cell cell-flex pr-cell">
-      <div class="nm">Винтовка / автомат</div>
+      <div class="nm">Винтовка / автомат</div>
       <div class="pr">3 680 ₽</div>
-      <p>длинноствольное оружие, стрелковая галерея 30 метров</p>
+      <p>длинноствольное оружие, стрелковая галерея 30 метров</p>
     </div>
     <div class="cell cell-flex pr-cell">
       <div class="nm">Подарочные карты</div>
-      <div class="pr">от 5 680 ₽</div>
+      <div class="pr">от 5 680 ₽</div>
       <p>курсы «Базовый», «Универсальный стрелок», «Профессионал»</p>
     </div>
   </div>
@@ -221,8 +226,8 @@
     <div class="cell cell--big cell--static cell-flex sec-cell">
       <span class="kicker">Изюминка группы</span>
       <h2>Музей военной техники</h2>
-      <p>Одиннадцать единиц на ходу: от бронеавтомобиля БА-64 образца 1943 года до БРДМ-2. Техника участвует в парадах, выставках и экскурсиях.</p>
-      <div class="bottom"><a class="btn btn-line" href="#kontakty">Записаться на экскурсию</a></div>
+      <p>Одиннадцать единиц на ходу: от бронеавтомобиля БА-64 образца 1943 года до БРДМ-2. Техника участвует в парадах, выставках и экскурсиях.</p>
+      <div class="bottom"><a class="btn btn-line" href="#kontakty">Записаться на экскурсию</a></div>
     </div>
     <a class="photo-cell" href="muzey.html">
       <img src="фото/техника_брдм.jpg" alt="БРДМ-2 из коллекции музея">
@@ -239,22 +244,22 @@
 <section class="wrap canvas" id="uc" style="margin-top:96px">
   <div class="bento g-hero-sec rv">
     <div class="cell cell--big cell--static sec-cell">
-      <span class="kicker">ЧУ ДПО «УЦ Одиссей»</span>
+      <span class="kicker">ЧУ ДПО «УЦ Одиссей»</span>
       <h2>Учебный центр</h2>
-      <p>Лицензия на образовательную деятельность, свой тир для практики, экзамены на месте. Периодическую проверку принимают сотрудники Росгвардии.</p>
+      <p>Лицензия на образовательную деятельность, свой тир для практики, экзамены на месте. Периодическую проверку принимают сотрудники Росгвардии.</p>
       <div style="margin-top:16px"><a class="btn btn-line" href="uc.html">Подробнее об обучении →</a></div>
-      <div class="gold-note" style="margin-top:16px">Лицензия № 6801 от 14.07.2020, Минобрнауки Пермского края</div>
+      <div class="gold-note" style="margin-top:16px">Лицензия № 6801 от 14.07.2020, Минобрнауки Пермского края</div>
     </div>
-    <div class="ph"><span>Нужен материал:<br>фото учебного класса УЦ</span></div>
+    <div class="ph"><span>Нужен материал:<br>фото учебного класса УЦ</span></div>
   </div>
   <div class="bento bento--seamtop rv">
     <div class="cell cell--compact trow head cell--static"><div>Программа</div><div>Для кого</div><div style="text-align:right">Стоимость</div></div>
-    <div class="cell cell--compact trow"><div class="prog">Профподготовка охранников</div><div class="who">4–6 разряд, с квалификационным экзаменом</div><div class="cost">2 700 – 4 200 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Профподготовка охранников</div><div class="who">4–6 разряд, с квалификационным экзаменом</div><div class="cost">2 700 – 4 200 ₽</div></div>
     <div class="cell cell--compact trow"><div class="prog">Повышение квалификации</div><div class="who">4–6 разряд</div><div class="cost">1 500 – 1 700 ₽</div></div>
     <div class="cell cell--compact trow"><div class="prog">Периодическая проверка</div><div class="who">действующие охранники</div><div class="cost">1 200 – 1 400 ₽</div></div>
-    <div class="cell cell--compact trow"><div class="prog">Обращение с оружием</div><div class="who">владельцы гражданского оружия, 1 день, можно в выходные</div><div class="cost">2 000 – 4 000 ₽</div></div>
-    <div class="cell cell--compact trow"><div class="prog">Подготовка руководителей ЧОП</div><div class="who">впервые назначаемые и продление каждые 5 лет</div><div class="cost">4 000 – 8 000 ₽</div></div>
-    <div class="cell cell--compact trow"><div class="prog">Консультирование</div><div class="who">помощь с документами, физлица и юрлица</div><div class="cost">от 300 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Обращение с оружием</div><div class="who">владельцы гражданского оружия, 1 день, можно в выходные</div><div class="cost">2 000 – 4 000 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Подготовка руководителей ЧОП</div><div class="who">впервые назначаемые и продление каждые 5 лет</div><div class="cost">4 000 – 8 000 ₽</div></div>
+    <div class="cell cell--compact trow"><div class="prog">Консультирование</div><div class="who">помощь с документами, физлица и юрлица</div><div class="cost">от 300 ₽</div></div>
   </div>
 </section>
 
@@ -266,10 +271,10 @@
       <h2>Центр детекции лжи</h2>
       <div style="margin-top:16px"><a class="btn btn-line" href="poligraf.html">Подробнее о полиграфе →</a></div>
       <ul class="list" style="margin-top:16px">
-        <li>Проверка кандидатов при приёме на ответственные должности</li>
+        <li>Проверка кандидатов при приёме на ответственные должности</li>
         <li>Служебные расследования: хищения, утечки, злоупотребления</li>
         <li>Профессиональный полиграф «РИФ», сертифицированные специалисты</li>
-        <li>Тестирование одного человека — 5 000 ₽</li>
+        <li>Тестирование одного человека — 5 000 ₽</li>
       </ul>
     </div>
     <div class="cell cell--static" style="display:flex;flex-direction:column;justify-content:center">
@@ -297,7 +302,7 @@
     </a>
     <a class="photo-cell" href="dela.html">
       <img src="фото/кухня_полевая.jpg" alt="Полевая кухня КП-48 на мероприятии">
-      <div class="photo-cap"><b>Полевая кухня КП-48</b>образца 1948 года, на ходу</div>
+      <div class="photo-cap"><b>Полевая кухня КП-48</b>образца 1948 года, на ходу</div>
     </a>
   </div>
 </section>
@@ -314,20 +319,20 @@
   <div class="bento g-split bento--seamtop rv">
     <form class="cell cell--big cell--static form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Заявка отправлена'">
       <h3 style="margin-bottom:8px">Оставить заявку</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Перезвоним в рабочее время, подскажем по цене и срокам.</p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Перезвоним в рабочее время, подскажем по цене и срокам.</p>
       <input type="text" placeholder="Как вас зовут" required>
       <input type="tel" placeholder="+7 (___) ___-__-__" required>
       <select id="tema">
         <option>Охрана объекта</option>
         <option>Стрелковый тир</option>
         <option>Подарочная карта в тир</option>
-        <option>Обучение в УЦ</option>
-        <option>Проверка на полиграфе</option>
-        <option>Экскурсия / клуб «Патриот»</option>
+        <option>Обучение в УЦ</option>
+        <option>Проверка на полиграфе</option>
+        <option>Экскурсия / клуб «Патриот»</option>
       </select>
       <input type="text" placeholder="Комментарий: объект, адрес, задача (необязательно)">
       <button class="btn btn-red" type="submit">Отправить</button>
-      <small>Прототип: форма не подключена к серверу</small>
+      <small>Прототип: форма не подключена к серверу</small>
     </form>
     <div style="display:grid;gap:1px;background:var(--line)">
       <div class="cell c-cell"><b>Охрана</b><div class="v"><a href="tel:+73422066911">+7 (342) 20-66-911</a></div><span>Пн—Пт 9:00–18:00 · дежурная часть круглосуточно</span></div>
@@ -347,11 +352,11 @@
   <div class="wrap">
     <div class="f-grid">
       <div class="f-col"><b>Группа предприятий</b>
-        <div>ООО ЧОП «Одиссей-СБ» — охрана</div>
-        <div>ЧУ ДПО «УЦ Одиссей» — обучение</div>
-        <div>ПРСОО ССК «Одиссей» — стрелковый клуб</div>
-        <div>ООО Техцентр «Одиссей» — полиграф</div>
-        <div>АНО ВПК «Патриот» — работа с молодёжью</div>
+        <div>ООО ЧОП «Одиссей-СБ» — охрана</div>
+        <div>ЧУ ДПО «УЦ Одиссей» — обучение</div>
+        <div>ПРСОО ССК «Одиссей» — стрелковый клуб</div>
+        <div>ООО Техцентр «Одиссей» — полиграф</div>
+        <div>АНО ВПК «Патриот» — работа с молодёжью</div>
       </div>
       <div class="f-col"><b>Разделы</b>
         <div><a href="index.html">Главная</a></div>
@@ -363,7 +368,7 @@
         <div><a href="poligraf.html">Полиграф</a></div>
         <div><a href="dela.html">Добрые дела</a></div>
       </div>
-        <div><a href="#tir">Тир и музей</a></div>
+        <div><a href="#tir">Тир и музей</a></div>
         <div><a href="#uc">Учебный центр</a></div>
         <div><a href="#kontakty">Контакты</a></div>
       </div>
@@ -375,7 +380,7 @@
       </div>
     </div>
     <div class="f-bottom">
-      <div>© 2009–2026 Группа предприятий «Одиссей», Пермь</div>
+      <div>© 2009–2026 Группа предприятий «Одиссей», Пермь</div>
       <div>Прототип редизайна</div>
     </div>
   </div>
@@ -393,6 +398,12 @@
   },1900);
 })();
 document.querySelector('.burger')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')});
+document.getElementById('themeToggle')?.addEventListener('click',()=>{
+  const root=document.documentElement;
+  const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+  root.setAttribute('data-theme',next);
+  try{localStorage.setItem('odyssey-theme',next)}catch(e){}
+});
 const TEMA={ohrana:'Охрана объекта',tir:'Стрелковый тир',gift:'Подарочная карта в тир',uc:'Обучение в УЦ',poligraf:'Проверка на полиграфе',excursion:'Экскурсия / клуб «Патриот»'};
 const t=new URLSearchParams(location.search).get('t');
 if(t&&TEMA[t]){const sel=document.getElementById('tema');if(sel)sel.value=TEMA[t];}
