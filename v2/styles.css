@@ -49,6 +49,7 @@ h3{font-size:19px;line-height:1.15;font-weight:600}
 
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:16px 28px;cursor:pointer;border:none;transition:background .2s,color .2s}
+.btn:disabled{cursor:default;opacity:.6}
 .btn-red{background:var(--red);color:#fff}
 .btn-red:hover{background:var(--red-hover)}
 .btn-line{border:1px solid var(--ink);color:var(--ink);background:transparent}
@@ -209,6 +210,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 32px;font-size:13px;color
 /* reveal: только fade (§6) */
 .rv{opacity:0;transition:opacity .5s ease}
 .rv.on{opacity:1}
+
+/* якоря секций не должны прятаться под sticky-шапкой */
+section[id]{scroll-margin-top:110px}
 @media(prefers-reduced-motion:reduce){
   .rv{opacity:1;transition:none}
   .ticker{animation:none}
