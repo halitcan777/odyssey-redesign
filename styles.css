@@ -71,7 +71,7 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .hero-left .kicker::before{content:"";width:24px;height:2px;background:var(--red)}
 .hero-left h1{margin-bottom:12px}
 .hero-left h1 em{font-style:normal;color:var(--red)}
-.hero-sub{color:var(--muted);max-width:520px;margin-bottom:32px}
+.hero-sub{color:var(--muted);font-size:19px;line-height:1.55;max-width:600px;margin-bottom:32px}
 .cta-row{display:flex;gap:16px;flex-wrap:wrap}
 .hero-photo{position:relative;background:var(--cell);border-left:1px solid var(--line);min-height:560px;overflow:hidden}
 .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%;filter:grayscale(.9) contrast(1.06)}
