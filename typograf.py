@@ -39,6 +39,7 @@ def typograf(nodes):
     result = re.search(r"<ProcessTextResult>(.*?)</ProcessTextResult>", resp, re.S).group(1)
     result = H.unescape(result)
     result = re.sub(r"<nobr[^>]*>(.*?)</nobr>", r"\1", result)
+    result = result.replace('—', '–')  # em→en: короткие тире по решению заказчика
     fixed = re.split(r"\s*@@%@@\s*", result.strip("\n"))
     assert len(fixed) == len(nodes), f"разъехались ноды: {len(nodes)} → {len(fixed)}"
     return fixed
