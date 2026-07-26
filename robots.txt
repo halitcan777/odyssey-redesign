@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://halitcan777.github.io/odyssey-redesign/sitemap.xml
