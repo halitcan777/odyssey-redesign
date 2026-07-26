@@ -356,3 +356,15 @@ footer{margin-top:96px}
 @keyframes introText{to{opacity:1;transform:translateY(0)}}
 @keyframes introBar{to{width:100%}}
 @media(prefers-reduced-motion:reduce){#intro{display:none}}
+
+/* ── мобильная шапка после редизайна 25.07 (лого 42px + тумблер темы не влезали в 390) ── */
+@media(max-width:700px){
+  header .nav{padding:0 16px;gap:8px}
+  .logo{font-size:18px;gap:8px}
+  .logo-mark{width:32px}
+  .nav-phone{font-size:12.5px}
+  .theme-toggle{width:36px;height:36px;flex:none}
+  .burger{width:40px;height:40px;flex:none}
+  /* dir-shot: вынос фото за ячейку под мобильный паддинг 20 */
+  .dir-shot{margin:-20px -20px 16px}
+}
