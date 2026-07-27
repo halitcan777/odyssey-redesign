@@ -1,7 +1,7 @@
 :root{
   --bg:#FFFFFF; --cell:#FDFBF7; --cell-hover:#F7EEDC; --line:#E4D9C4;
   --ink:#1F1A17; --muted:#79695A;
-  --red:#93221B; --red-hover:#7A1B15;
+  --red:#C8102E; --red-hover:#A00D25; --gold:#C9A227;
   --display:'Oswald',sans-serif; --body:'Inter',sans-serif;
 }
 :root[data-theme="dark"]{
@@ -21,7 +21,7 @@ h3{font-size:19px;line-height:1.15;font-weight:600}
 .wrap{max-width:100%;margin:0 auto;padding:0 48px}
 .kicker{font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
 .gold-note{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
-.gold-note::before{content:"";width:8px;height:8px;background:var(--red);flex:none}
+.gold-note::before{content:"";width:8px;height:8px;background:var(--gold);flex:none}
 
 /* бенто: единственный разрешённый способ общих границ */
 .bento{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -74,7 +74,7 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .hero-grid{display:grid;grid-template-columns:7fr 5fr}
 .hero-left{padding:64px 48px 64px 0;background:var(--bg)}
 .hero-left .kicker{margin-bottom:8px;display:flex;align-items:center;gap:10px}
-.hero-left .kicker::before{content:"";width:24px;height:2px;background:var(--red)}
+.hero-left .kicker::before{content:"";width:24px;height:2px;background:var(--gold)}
 .hero-left h1{margin-bottom:12px}
 .hero-left h1 em{font-style:normal;color:var(--red)}
 .hero-sub{color:var(--muted);font-size:19px;line-height:1.55;max-width:600px;margin-bottom:32px}
@@ -247,7 +247,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 32px;font-size:13px;color
 .nav-links a.active{border-color:var(--red);color:var(--ink)}
 .page-hero{padding:64px 0 48px;max-width:760px}
 .page-hero .kicker{margin-bottom:8px;display:flex;align-items:center;gap:10px}
-.page-hero .kicker::before{content:"";width:24px;height:2px;background:var(--red)}
+.page-hero .kicker::before{content:"";width:24px;height:2px;background:var(--gold)}
 .page-hero h1{font-size:clamp(38px,4vw,56px);margin-bottom:12px}
 .page-hero .hero-sub{margin-bottom:0}
 .page-hero .cta-row{margin-top:32px}
@@ -391,3 +391,16 @@ h1,h2,h3{overflow-wrap:break-word}
 .hero-badges span::before{content:"";width:6px;height:6px;background:var(--red);flex:none}
 .f-logo{display:flex;align-items:center;gap:12px;margin-bottom:28px;font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
 .f-logo small{display:block;font-family:var(--body);font-weight:500;font-size:10px;letter-spacing:.12em;color:var(--muted)}
+
+/* схема пультовой охраны */
+.scheme-cell{position:relative}
+.scheme-cell svg{color:var(--red);margin-bottom:12px}
+.scheme-cell h3{margin-bottom:8px;font-size:16px}
+.scheme-cell p{font-size:13px;color:var(--muted)}
+.scheme-cell::after{content:"→";position:absolute;top:24px;right:12px;font-family:var(--display);font-weight:700;font-size:20px;color:var(--red);opacity:.55}
+.scheme-cell:last-child::after{content:""}
+@media(max-width:1020px){.scheme-cell::after{content:"↓";top:auto;bottom:12px;right:16px}}
+/* хлебные крошки */
+.crumbs{font-size:11.5px;color:var(--muted);margin-bottom:16px;display:flex;gap:8px;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.crumbs a:hover{color:var(--red)}
+.crumbs span{opacity:.5}
