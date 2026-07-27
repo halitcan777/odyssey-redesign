@@ -85,8 +85,10 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .hero-video-inner .btn-line:hover{background:#F5F3EE;color:#101114}
 .hero-video-inner .hero-badges{color:#9BA3AD}
 .hero-video-inner .crumbs{color:#B9C0C7}
-.hero-video.hero-video--page{min-height:420px;align-items:flex-start}
+.hero-video.hero-video--page{min-height:640px;align-items:flex-start}
 .hero-video--page .hero-video-inner{padding-top:48px;padding-bottom:48px}
+.hero-video--page .hero-video-inner h1{font-size:clamp(38px,4vw,56px)}
+.hero-video--page .hero-video-inner .hero-sub{font-size:19px;max-width:640px}
 .hero-sub{color:var(--muted);font-size:19px;line-height:1.55;max-width:600px;margin-bottom:32px}
 .cta-row{display:flex;gap:16px;flex-wrap:wrap}
 
@@ -200,12 +202,14 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .form small{display:block;text-align:center;color:var(--muted);font-size:11px;margin-top:12px}
 
 /* футер */
-footer{border-top:1px solid var(--line);padding:48px 0;font-size:13px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:48px 0;font-size:15px;color:var(--muted)}
 .f-grid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:32px}
-.f-col b{color:var(--ink);font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:13px;letter-spacing:.08em;display:block;margin-bottom:12px}
+.f-col b{color:var(--ink);font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.08em;display:block;margin-bottom:12px}
 .f-col div{margin-bottom:4px}
 .f-col a:hover{color:var(--ink)}
-.f-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px}
+.f-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+.map-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;pointer-events:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+.map-pin img{width:100%;display:block}
 
 /* сетки-раскладки */
 .span2{grid-column:span 2}
