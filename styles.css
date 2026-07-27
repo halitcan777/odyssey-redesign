@@ -86,7 +86,6 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .hero-video-inner .hero-badges{color:#9BA3AD}
 .hero-sub{color:var(--muted);font-size:19px;line-height:1.55;max-width:600px;margin-bottom:32px}
 .cta-row{display:flex;gap:16px;flex-wrap:wrap}
-@media(prefers-reduced-motion:reduce){.hero-video-media{display:none}}
 
 /* десктоп: видео на весь экран под шапкой (92px) */
 @media(min-width:1021px){
