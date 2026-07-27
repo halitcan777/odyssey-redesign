@@ -189,7 +189,9 @@
       <div style="margin-top:16px"><a class="btn btn-line" href="tir.html">Подробнее о тире →</a></div>
     </div>
     <a class="photo-cell" href="tir.html">
-      <img src="фото/тир_сетка.webp" alt="Стрелковая галерея тира Одиссей">
+      <video class="photo-cell-video mirror" autoplay muted loop playsinline poster="фото/тир_рубеж_постер.jpg">
+        <source src="видео/тир_рубеж.mp4" type="video/mp4">
+      </video>
       <div class="photo-cap"><b>Галерея 30 метров</b>метание ножей · экспозиции оружия</div>
     </a>
   </div>
@@ -412,7 +414,7 @@
   },1900);
 })();
 document.querySelector('.burger')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')});
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelector('.hero-video-media')?.pause()}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.hero-video-media,.photo-cell-video').forEach(v=>v.pause())}
 document.getElementById('themeToggle')?.addEventListener('click',()=>{
   const root=document.documentElement;
   const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
