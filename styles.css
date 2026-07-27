@@ -84,6 +84,9 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .hero-video-inner .btn-line{border-color:#F5F3EE;color:#F5F3EE}
 .hero-video-inner .btn-line:hover{background:#F5F3EE;color:#101114}
 .hero-video-inner .hero-badges{color:#9BA3AD}
+.hero-video-inner .crumbs{color:#B9C0C7}
+.hero-video.hero-video--page{min-height:420px}
+.hero-video--page .hero-video-inner{padding-top:48px;padding-bottom:48px}
 .hero-sub{color:var(--muted);font-size:19px;line-height:1.55;max-width:600px;margin-bottom:32px}
 .cta-row{display:flex;gap:16px;flex-wrap:wrap}
 
@@ -182,6 +185,9 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 .c-cell .v{font-family:var(--display);font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:.02em}
 .c-cell span{font-size:13px;color:var(--muted);display:block;margin-top:4px}
 .form input,.form select{width:100%;padding:16px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;margin-bottom:16px;outline:none;transition:border-color .2s;appearance:none}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-row input{margin-bottom:0}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;gap:0}}
 .form input:focus,.form select:focus{border-color:var(--red)}
 .form input::placeholder{color:#A6987F}
 :root[data-theme="dark"] .form input::placeholder{color:#5c6068}
