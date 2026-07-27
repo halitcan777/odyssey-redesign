@@ -54,49 +54,32 @@
   </div>
 </header>
 
-<!-- ГЕРОЙ -->
-<section class="wrap">
-  <div class="hero-grid">
-    <div class="hero-left">
-      <div class="kicker">Пермь и Пермский край · с 2009 года</div>
-      <h1><em>Охраняем объекты.</em> Учим охранников. Проверяем людей.</h1>
-      <p class="hero-sub">Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи – четыре предприятия одной группы.</p>
-      <div class="cta-row">
-        <a class="btn btn-red" href="#kontakty">Оставить заявку</a>
-        <a class="btn btn-line" href="#napravleniya">Все направления</a>
-      </div>
-      <div class="hero-badges">
-        <span>Лицензия Росгвардии ЧО № 056449</span>
-        <span>Дежурная часть 24/7</span>
-        <span>Пермь, Стахановская, 54Л</span>
-      </div>
+<!-- ГЕРОЙ: видео на весь экран -->
+<section class="hero-video">
+  <video class="hero-video-media" autoplay muted loop playsinline poster="фото/герой_пули_постер.jpg">
+    <source src="видео/герой_пули.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-scrim"></div>
+  <div class="wrap hero-video-inner">
+    <div class="kicker">Пермь и Пермский край · с 2009 года</div>
+    <h1><em>Охраняем объекты.</em> Учим охранников. Проверяем людей.</h1>
+    <p class="hero-sub">Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи – четыре предприятия одной группы.</p>
+    <div class="cta-row">
+      <a class="btn btn-red" href="#kontakty">Оставить заявку</a>
+      <a class="btn btn-line" href="#napravleniya">Все направления</a>
     </div>
-    <div class="hero-photo">
-      <img src="фото/герой_охранник_meshy.webp" alt="Сотрудник охраны Одиссей в экипировке" width="1400" height="1496">
-      <svg class="blob" style="top:5%;right:6%" width="120" height="90" viewBox="0 0 120 90"><g fill="#93221B"><rect x="30" y="0" width="30" height="30"/><rect x="60" y="15" width="30" height="30"/><rect x="90" y="0" width="30" height="30"/><rect x="0" y="30" width="30" height="30"/><rect x="45" y="45" width="30" height="30"/></g></svg>
-      <svg class="blob" style="bottom:8%;left:4%" width="100" height="80" viewBox="0 0 100 80"><g fill="#93221B"><rect x="0" y="0" width="26" height="26"/><rect x="26" y="26" width="26" height="26"/><rect x="0" y="52" width="26" height="26"/><rect x="60" y="40" width="26" height="26"/></g></svg>
-      <div class="callout co-left" style="top:16%;left:3%">
-        <div class="ln"></div><div class="t">Форменная экипировка</div>
-        <div class="d">сотрудник опознаётся с первого взгляда</div>
-      </div>
-      <div class="callout co-left" style="top:56%;left:5%">
-        <div class="ln"></div><div class="t">Радиосвязь</div>
-        <div class="d">постоянный канал с дежурной частью группы</div>
-      </div>
-      <div class="callout co-right" style="top:30%;right:4%">
-        <div class="ln"></div><div class="t">Кадровый состав</div>
-        <div class="d">бывшие сотрудники силовых структур</div>
-      </div>
-      <div class="callout co-right" style="top:74%;right:4%">
-        <div class="ln"></div><div class="t">Служебное оружие</div>
-        <div class="d">подготовка и зачёты в собственном тире</div>
-      </div>
+    <div class="hero-badges">
+      <span>Лицензия Росгвардии ЧО № 056449</span>
+      <span>Дежурная часть 24/7</span>
+      <span>Пермь, Стахановская, 54Л</span>
     </div>
   </div>
+</section>
 
+<section class="wrap">
   <!-- статы: бенто-строка под героем, рамка со всех сторон -->
-  <div class="bento g-4 rv">
-    <div class="cell cell--compact stat"><b data-count="17">17</b><span>лет на рынке безопасности</span></div>
+  <div class="bento g-4 rv" style="margin-top:96px">
+    <div class="cell cell--compact stat"><b data-count="17">17</b><span>лет на рынке безопасности</span></div>
     <div class="cell cell--compact stat"><b>24/7</b><span>дежурная часть и выезд ГБР</span></div>
     <div class="cell cell--compact stat"><b data-count="26">26</b><span>единиц оружия в собственном тире</span></div>
     <div class="cell cell--compact stat"><b data-count="2011">2011</b><span>год: первый закрытый стрелковый клуб Перми</span></div>
@@ -438,7 +421,6 @@ document.getElementById('themeToggle')?.addEventListener('click',()=>{
 const TEMA={ohrana:'Охрана объекта',tir:'Стрелковый тир',gift:'Подарочная карта в тир',uc:'Обучение в УЦ',poligraf:'Проверка на полиграфе',excursion:'Экскурсия / клуб «Патриот»'};
 const t=new URLSearchParams(location.search).get('t');
 if(t&&TEMA[t]){const sel=document.getElementById('tema');if(sel)sel.value=TEMA[t];}
-requestAnimationFrame(()=>document.querySelector('.hero-photo')?.classList.add('in'));
 const bar=document.getElementById('progress');
 addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
 
