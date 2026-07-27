@@ -208,8 +208,6 @@ footer{border-top:1px solid var(--line);padding:48px 0;font-size:15px;color:var(
 .f-col div{margin-bottom:4px}
 .f-col a:hover{color:var(--ink)}
 .f-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
-.map-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;pointer-events:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
-.map-pin img{width:100%;display:block}
 
 /* сетки-раскладки */
 .span2{grid-column:span 2}

@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="лого/favicon.png">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="styles.css?v=20260728a">
+<link rel="stylesheet" href="styles.css?v=20260728b">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Группа предприятий «Одиссей»", "description": "Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи в Перми. Лицензия Росгвардии ЧО № 056449.", "url": "https://halitcan777.github.io/odyssey-redesign/", "telephone": "+7 (342) 20-66-911", "email": "odyssey.security@mail.ru", "address": {"@type": "PostalAddress", "streetAddress": "ул. Стахановская, 54Л", "addressLocality": "Пермь", "postalCode": "614066", "addressCountry": "RU"}, "openingHours": "Mo-Fr 09:00-18:00", "image": "https://halitcan777.github.io/odyssey-redesign/лого/одиссей-щит.svg"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://halitcan777.github.io/odyssey-redesign/"}, {"@type": "ListItem", "position": 2, "name": "Охрана", "item": "https://halitcan777.github.io/odyssey-redesign/ohrana.html"}]}</script>
 </head>
@@ -47,8 +47,12 @@
   </div>
 </header>
 
-<section class="wrap">
-  <div class="page-hero">
+<section class="hero-video hero-video--page">
+  <video class="hero-video-media" autoplay muted loop playsinline poster="фото/охрана_рация_постер.jpg">
+    <source src="видео/охрана_рация.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-scrim"></div>
+  <div class="wrap hero-video-inner">
     <nav class="crumbs"><a href="index.html">Главная</a><span>/</span>Охрана</nav>
     <div class="kicker">ООО ЧОП «Одиссей-СБ» · лицензия Росгвардии ЧО № 056449</div>
     <h1>Охранное предприятие</h1>
@@ -86,8 +90,8 @@
   </div>
   
   <div class="bento g-2 bento--seamtop rv">
-    <div class="photo-cell" style="min-height:320px"><img src="фото/охрана_гбр.webp" alt="Группа быстрого реагирования у автомобиля" loading="lazy"><div class="photo-cap"><b>ГБР на выезде</b>сигнал с пульта – машина уже в пути</div></div>
-    <div class="photo-cell" style="min-height:320px"><img src="фото/охрана_пост.webp" alt="Пост охраны на проходной бизнес-центра" loading="lazy"><div class="photo-cap"><b>Пост на объекте</b>контрольно-пропускной режим</div></div>
+    <div class="photo-cell" style="min-height:416px"><img src="фото/охрана_гбр.webp" alt="Группа быстрого реагирования у автомобиля" loading="lazy"><div class="photo-cap"><b>ГБР на выезде</b>сигнал с пульта – машина уже в пути</div></div>
+    <div class="photo-cell" style="min-height:416px"><img src="фото/охрана_пост.webp" alt="Пост охраны на проходной бизнес-центра" loading="lazy"><div class="photo-cap"><b>Пост на объекте</b>контрольно-пропускной режим</div></div>
   </div>
 </section>
 
@@ -106,8 +110,8 @@
     <div class="cell scheme-cell"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 16l2-6h14l2 6v4h-3v-2H6v2H3v-4Z"/><circle cx="7.5" cy="16" r="1.4"/><circle cx="16.5" cy="16" r="1.4"/><path d="M9 7h6"/></svg><h3>Выезд ГБР</h3><p>Вооружённый экипаж группы быстрого реагирования выдвигается на объект немедленно.</p></div>
   </div>
   <div class="bento g-2 bento--seamtop rv">
-    <div class="photo-cell" style="min-height:300px"><img src="фото/охрана_пультовая.webp" alt="Оперативный дежурный на пульте централизованного наблюдения" loading="lazy"><div class="photo-cap"><b>Дежурная часть 24/7</b>объект на пульте круглосуточно</div></div>
-    <div class="photo-cell" style="min-height:300px"><img src="фото/охрана_монтаж.webp" alt="Монтаж охранной сигнализации на объекте" loading="lazy"><div class="photo-cap"><b>Монтаж и обслуживание</b>сигнализация под объект</div></div>
+    <div class="photo-cell" style="min-height:390px"><img src="фото/охрана_пультовая.webp" alt="Оперативный дежурный на пульте централизованного наблюдения" loading="lazy"><div class="photo-cap"><b>Дежурная часть 24/7</b>объект на пульте круглосуточно</div></div>
+    <div class="photo-cell" style="min-height:390px"><img src="фото/охрана_монтаж.webp" alt="Монтаж охранной сигнализации на объекте" loading="lazy"><div class="photo-cap"><b>Монтаж и обслуживание</b>сигнализация под объект</div></div>
   </div>
 </section>
 
@@ -213,6 +217,7 @@ document.getElementById('themeToggle')?.addEventListener('click',()=>{
   try{localStorage.setItem('odyssey-theme',next)}catch(e){}
 });
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduced){document.querySelectorAll('.hero-video-media,.photo-cell-video').forEach(v=>v.pause())}
 if(!reduced){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
