@@ -72,12 +72,11 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 @media(max-width:1280px){.nav-links{display:none}}
 
 /* герой: видео на весь экран */
-.hero-video{position:relative;overflow:hidden;min-height:calc(100vh - 92px);display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.hero-video{position:relative;overflow:hidden;min-height:max(560px,calc(100vh - 92px));display:flex;align-items:center;border-bottom:1px solid var(--line)}
 .hero-video-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.85) contrast(1.05)}
 .hero-video-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,9,.85) 0%,rgba(8,8,9,.5) 48%,rgba(8,8,9,.14) 78%)}
 .hero-video-inner{position:relative;z-index:2;padding-top:64px;padding-bottom:64px}
-.hero-video-inner .kicker{margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.hero-video-inner .kicker::before{content:"";width:24px;height:2px;background:var(--gold)}
+.hero-video-inner .kicker{margin-bottom:8px;display:block}
 .hero-video-inner h1{margin-bottom:12px;color:#F5F3EE}
 .hero-video-inner h1 em{font-style:normal;color:var(--red)}
 .hero-video-inner .hero-sub{color:#C7CCD3}
@@ -94,7 +93,9 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 }
 /* на невысоких окнах (реальный браузер с панелями, не голый vh) герой компактнее */
 @media(min-width:1021px) and (max-height:920px){
-  .hero-video{min-height:0}
+  /* высоту НЕ обнуляем: это видео-полотно, схлопнутый кадр читается как баг.
+     На низких окнах ужимаем только типографику и внутренние отступы. */
+  .hero-video{min-height:calc(100vh - 92px)}
   .hero-video-inner{padding-top:24px;padding-bottom:24px}
   .hero-video-inner h1{font-size:clamp(30px,3.6vw,44px);margin-bottom:8px}
   .hero-video-inner .hero-sub{font-size:15px;line-height:1.4;margin-bottom:16px}
@@ -215,9 +216,10 @@ footer{border-top:1px solid var(--line);padding:48px 0;font-size:13px;color:var(
 
 /* ── внутренние страницы ── */
 .nav-links a.active{border-color:var(--red);color:var(--ink)}
-.page-hero{padding:64px 0 48px;max-width:760px}
-.page-hero .kicker{margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.page-hero .kicker::before{content:"";width:24px;height:2px;background:var(--gold)}
+/* шапка страницы: 48 сверху (воздух после хедера), 32 снизу — заголовок ближе
+   к своему контенту, чем к соседнему полотну (§3, закон близости) */
+.page-hero{padding:48px 0 32px;max-width:760px}
+.page-hero .kicker{margin-bottom:8px;display:block}
 .page-hero h1{font-size:clamp(38px,4vw,56px);margin-bottom:12px}
 .page-hero .hero-sub{margin-bottom:0}
 .page-hero .cta-row{margin-top:32px}
@@ -264,6 +266,7 @@ footer{border-top:1px solid var(--line);padding:48px 0;font-size:13px;color:var(
      ПОСЛЕ .cell{padding:20px} — иначе мобильное правило перебивает .wcard{padding:0} */
   .cell.wcard{padding:0}
   .page-hero,.hero-video-inner{padding-left:20px;padding-right:20px}
+  .page-hero{padding-top:32px;padding-bottom:24px}
   .bento{border-left:none;border-right:none}
   .ticker-band{border-left:none;border-right:none}
   /* плашка-подпись примыкает к краю экрана — горизонтальный паддинг держит текст на общих 20px */
