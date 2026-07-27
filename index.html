@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="лого/favicon.png">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="styles.css?v=20260728b">
+<link rel="stylesheet" href="styles.css?v=20260728c">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Группа предприятий «Одиссей»", "description": "Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи в Перми. Лицензия Росгвардии ЧО № 056449.", "url": "https://halitcan777.github.io/odyssey-redesign/", "telephone": "+7 (342) 20-66-911", "email": "odyssey.security@mail.ru", "address": {"@type": "PostalAddress", "streetAddress": "ул. Стахановская, 54Л", "addressLocality": "Пермь", "postalCode": "614066", "addressCountry": "RU"}, "openingHours": "Mo-Fr 09:00-18:00", "image": "https://halitcan777.github.io/odyssey-redesign/лого/одиссей-щит.svg"}</script>
 </head>
 <body>
@@ -56,13 +56,13 @@
 
 <!-- ГЕРОЙ: видео на весь экран -->
 <section class="hero-video">
-  <video class="hero-video-media" autoplay muted playsinline poster="фото/герой_охранник_постер.jpg">
-    <source src="видео/герой_охранник.mp4" type="video/mp4">
+  <video class="hero-video-media" muted playsinline poster="фото/герой_охранник2_постер.jpg">
+    <source src="видео/герой_охранник2.mp4" type="video/mp4">
   </video>
   <div class="hero-video-scrim"></div>
   <div class="wrap hero-video-inner">
     <div class="kicker">Пермь и Пермский край · с 2009 года</div>
-    <h1>Комплексные решения в сфере безопасности</h1>
+    <h1>Комплексные решения<br>в сфере безопасности</h1>
     <p class="hero-sub">Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи – четыре предприятия одной группы.</p>
     <div class="cta-row">
       <a class="btn btn-red" href="#kontakty">Оставить заявку</a>
@@ -413,7 +413,7 @@
   document.body.style.overflow='hidden';
   setTimeout(()=>{
     intro.classList.add('out');
-    intro.addEventListener('transitionend',()=>{intro.remove();document.body.style.overflow=''},{once:true});
+    intro.addEventListener('transitionend',()=>{intro.remove();document.body.style.overflow='';document.querySelector('.hero-video-media')?.play()},{once:true});
   },1900);
 })();
 document.querySelector('.burger')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')});
