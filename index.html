@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="лого/favicon.png">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="styles.css?v=20260729a">
+<link rel="stylesheet" href="styles.css?v=20260729b">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Группа предприятий «Одиссей»", "description": "Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи в Перми. Лицензия Росгвардии ЧО № 056449.", "url": "https://halitcan777.github.io/odyssey-redesign/", "telephone": "+7 (342) 20-66-911", "email": "odyssey.security@mail.ru", "address": {"@type": "PostalAddress", "streetAddress": "ул. Стахановская, 54Л", "addressLocality": "Пермь", "postalCode": "614066", "addressCountry": "RU"}, "openingHours": "Mo-Fr 09:00-18:00", "image": "https://halitcan777.github.io/odyssey-redesign/лого/одиссей-щит.svg"}</script>
 </head>
 <body>
@@ -44,7 +44,7 @@
       <a href="poligraf.html">Полиграф</a>
       <a href="dela.html">Добрые дела</a>
       <a href="licenzii.html">Лицензии</a>
-      <a href="#kontakty">Контакты</a>
+      <a href="kontakty.html">Контакты</a>
     </nav>
     <a class="nav-phone" href="tel:+73422066911">+7 (342) 20-66-911<span>многоканальный</span></a>
     <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
@@ -66,7 +66,7 @@
     <h1>Комплексные решения<br>в сфере безопасности</h1>
     <p class="hero-sub">Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи – четыре предприятия одной группы.</p>
     <div class="cta-row">
-      <a class="btn btn-red" href="#kontakty">Оставить заявку</a>
+      <button class="btn btn-red" type="button" data-cta>Оставить заявку</button>
       <a class="btn btn-line" href="#napravleniya">Все направления</a>
     </div>
     <div class="hero-badges">
@@ -230,7 +230,7 @@
       <span class="kicker">Своя коллекция</span>
       <h2>Музей военной техники</h2>
       <p>Одиннадцать единиц на ходу: от бронеавтомобиля БА-64 образца 1943 года до БРДМ-2. Выезжаем на парады, фестивали и школьные экскурсии.</p>
-      <div class="bottom"><a class="btn btn-line" href="#kontakty">Записаться на экскурсию</a></div>
+      <div class="bottom"><button class="btn btn-line" type="button" data-cta data-tema="Экскурсия / клуб «Патриот»">Записаться на экскурсию</button></div>
     </div>
     <a class="photo-cell photo-cell--static" href="muzey.html">
       <img src="фото/техника_брдм.webp" alt="БРДМ-2 из коллекции музея">
@@ -321,50 +321,6 @@
   </div>
 </section>
 
-<section class="wrap canvas" id="kontakty" style="margin-top:96px">
-  <div class="bento rv">
-    <div class="cell cell--big cell--static sec-cell">
-      <span class="kicker">Контакты</span>
-      <h2>Как нас найти</h2>
-      <p>Пермь, ул. Стахановская, 54Л · остановки «Манеж Спартак», «Снайперов», «Стахановская»</p>
-      <div style="margin-top:16px"><a class="btn btn-line" style="padding:10px 18px;font-size:11px" href="https://yandex.ru/maps/?text=%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%2C%20%D0%A1%D1%82%D0%B0%D1%85%D0%B0%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%2054%D0%9B" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a></div>
-    </div>
-  </div>
-  <div class="bento bento--seamtop rv">
-    <form class="cell cell--big cell--static form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Заявка отправлена'">
-      <h3 style="margin-bottom:8px">Оставить заявку</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Перезвоним в рабочее время, подскажем по цене и срокам.</p>
-      <div class="form-row">
-        <input type="text" placeholder="Как вас зовут" required>
-        <input type="tel" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <select id="tema" required>
-        <option value="" disabled selected hidden>Тема обращения</option>
-        <option>Охрана объекта</option>
-        <option>Стрелковый тир</option>
-        <option>Подарочная карта в тир</option>
-        <option>Обучение в УЦ</option>
-        <option>Проверка на полиграфе</option>
-        <option>Экскурсия / клуб «Патриот»</option>
-      </select>
-      <input type="text" placeholder="Комментарий: объект, адрес, задача (необязательно)">
-      <button class="btn btn-red" type="submit">Отправить</button>
-      <small>Прототип: форма не подключена к серверу</small>
-    </form>
-  </div>
-  <div class="bento g-split bento--seamtop rv">
-    <div class="cell" style="padding:0;overflow:hidden;min-height:360px;position:relative">
-      <iframe src="https://yandex.ru/map-widget/v1/?ll=56.209171%2C57.988030&z=16&pt=56.209171%2C57.988030%2Cpm2rdm" style="border:0;display:block;width:100%;height:100%" loading="lazy" title="Одиссей на карте – Пермь, ул. Стахановская, 54Л"></iframe>
-    </div>
-    <div style="display:grid;gap:1px;background:var(--line)">
-      <div class="cell c-cell"><b>Охрана</b><div class="v"><a href="tel:+73422066911">+7 (342) 20-66-911</a></div><span>Пн–Пт 9:00–18:00 · дежурная часть круглосуточно</span></div>
-      <div class="cell c-cell"><b>Тир</b><div class="v"><a href="tel:+73422066161">+7 (342) 20-66-161</a></div><span>Ср–Вс 12:00–20:00</span></div>
-      <div class="cell c-cell"><b>Учебный центр</b><div class="v"><a href="tel:+73422061911">+7 (342) 20-61-911</a></div><span>Пн–Пт 9:00–18:00</span></div>
-      <div class="cell c-cell"><b>Почта</b><div class="v" style="text-transform:none"><a href="mailto:odyssey.security@mail.ru">odyssey.security@mail.ru</a></div></div>
-    </div>
-  </div>
-</section>
-
 <footer style="margin-top:96px">
   <div class="wrap">
     <div class="f-logo"><img src="лого/одиссей-щит.svg" alt="" width="26" height="32"><span>Одиссей<small>группа предприятий безопасности · Пермь</small></span></div>
@@ -419,9 +375,6 @@ document.getElementById('themeToggle')?.addEventListener('click',()=>{
   root.setAttribute('data-theme',next);
   try{localStorage.setItem('odyssey-theme',next)}catch(e){}
 });
-const TEMA={ohrana:'Охрана объекта',tir:'Стрелковый тир',gift:'Подарочная карта в тир',uc:'Обучение в УЦ',poligraf:'Проверка на полиграфе',excursion:'Экскурсия / клуб «Патриот»'};
-const t=new URLSearchParams(location.search).get('t');
-if(t&&TEMA[t]){const sel=document.getElementById('tema');if(sel)sel.value=TEMA[t];}
 const bar=document.getElementById('progress');
 addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
 
@@ -440,5 +393,30 @@ if(!reduced){
   document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
 }
 </script>
+
+<dialog class="cta-dialog" id="ctaDialog">
+  <form class="cta-form form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Заявка отправлена'">
+    <button class="cta-dialog-close" type="button" aria-label="Закрыть">×</button>
+    <h3 style="margin-bottom:8px">Оставить заявку</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Перезвоним в рабочее время, подскажем по цене и срокам.</p>
+    <div class="form-row">
+      <input type="text" placeholder="Как вас зовут" required>
+      <input type="tel" placeholder="+7 (___) ___-__-__" required>
+    </div>
+    <select required>
+      <option value="" disabled selected hidden>Тема обращения</option>
+      <option>Охрана объекта</option>
+      <option>Стрелковый тир</option>
+      <option>Подарочная карта в тир</option>
+      <option>Обучение в УЦ</option>
+      <option>Проверка на полиграфе</option>
+      <option>Экскурсия / клуб «Патриот»</option>
+    </select>
+    <input type="text" placeholder="Комментарий: объект, адрес, задача (необязательно)">
+    <button class="btn btn-red" type="submit">Отправить</button>
+    <small>Прототип: форма не подключена к серверу</small>
+  </form>
+</dialog>
+<script src="common.js"></script>
 </body>
 </html>

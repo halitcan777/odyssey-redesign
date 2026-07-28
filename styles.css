@@ -41,6 +41,21 @@ h3{font-size:19px;line-height:1.15;font-weight:600}
 .photo-cell img,.photo-cell video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:grayscale(.85) contrast(1.05);transition:filter .4s}
 a.photo-cell:hover img,a.photo-cell:hover video{filter:grayscale(0) contrast(1.02)}
 a.photo-cell.photo-cell--static:hover img,a.photo-cell.photo-cell--static:hover video{filter:grayscale(.85) contrast(1.05)}
+/* страницы, где вообще все фото должны оставаться без окрашивания при наведении */
+body.no-tint .wcard:hover .shot img,body.no-tint a.photo-cell:hover img,body.no-tint a.photo-cell:hover video,body.no-tint .dir:hover .dir-shot img,body.no-tint .doc-cell:hover img{filter:grayscale(.85) contrast(1.05);transform:none}
+
+/* модальное окно заявки */
+.cta-dialog{position:fixed;inset:0;margin:auto;border:none;padding:0;background:var(--cell);width:min(480px,92vw);max-height:88vh;overflow:auto}
+.cta-dialog::backdrop{background:rgba(8,8,9,.72)}
+.cta-dialog .cta-form{padding:32px;position:relative}
+.cta-dialog-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:18px;line-height:1;cursor:pointer;z-index:2}
+.cta-dialog-close:hover{background:var(--ink);color:var(--bg)}
+@media(max-width:560px){.cta-dialog{width:100vw;max-height:100vh;height:100vh}}
+
+/* лайтбокс для сканов документов */
+.lightbox-dialog{position:fixed;inset:0;margin:auto;border:none;padding:0;background:transparent;max-width:94vw;max-height:94vh;width:fit-content;height:fit-content}
+.lightbox-dialog::backdrop{background:rgba(8,8,9,.92)}
+.lightbox-dialog img{display:block;max-width:94vw;max-height:94vh;object-fit:contain;cursor:zoom-out}
 .mirror{transform:scaleX(-1)}
 .photo-cap{position:absolute;left:0;bottom:0;background:var(--cell);border-top:1px solid var(--line);border-right:1px solid var(--line);padding:12px 16px;font-size:13px;color:var(--muted);z-index:2}
 .photo-cap b{display:block;font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:14px;color:var(--ink);letter-spacing:.04em}
@@ -122,7 +137,7 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 /* статы под героем */
 .stat{padding:24px}
 .stat b{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;display:block;margin-bottom:8px;color:var(--red)}
-.stat b i{font-style:normal;color:var(--red);font-size:18px;vertical-align:top}
+.stat b i{font-style:normal;color:var(--red);font-size:18px;vertical-align:baseline}
 .stat b span{font-size:inherit;color:inherit;font-family:inherit}
 .stat>span{font-size:12.5px;color:var(--muted)}
 

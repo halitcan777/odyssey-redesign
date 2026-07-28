@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="лого/favicon.png">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="styles.css?v=20260729a">
+<link rel="stylesheet" href="styles.css?v=20260729b">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Группа предприятий «Одиссей»", "description": "Охранное предприятие, учебный центр, боевой стрелковый тир и центр детекции лжи в Перми. Лицензия Росгвардии ЧО № 056449.", "url": "https://halitcan777.github.io/odyssey-redesign/", "telephone": "+7 (342) 20-66-911", "email": "odyssey.security@mail.ru", "address": {"@type": "PostalAddress", "streetAddress": "ул. Стахановская, 54Л", "addressLocality": "Пермь", "postalCode": "614066", "addressCountry": "RU"}, "openingHours": "Mo-Fr 09:00-18:00", "image": "https://halitcan777.github.io/odyssey-redesign/лого/одиссей-щит.svg"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://halitcan777.github.io/odyssey-redesign/"}, {"@type": "ListItem", "position": 2, "name": "Лицензии", "item": "https://halitcan777.github.io/odyssey-redesign/licenzii.html"}]}</script>
 </head>
@@ -37,7 +37,7 @@
       <a href="poligraf.html">Полиграф</a>
       <a href="dela.html">Добрые дела</a>
       <a href="licenzii.html" class="active">Лицензии</a>
-      <a href="index.html#kontakty">Контакты</a>
+      <a href="kontakty.html">Контакты</a>
     </nav>
     <a class="nav-phone" href="tel:+73422066911">+7 (342) 20-66-911<span>многоканальный</span></a>
     <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
@@ -188,5 +188,10 @@ if(!reduced){
   document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
 }
 </script>
+
+<dialog class="lightbox-dialog" id="lightboxDialog">
+  <img id="lightboxImg" src="" alt="">
+</dialog>
+<script src="common.js"></script>
 </body>
 </html>
