@@ -130,6 +130,7 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 @media(max-width:1020px){
   /* боковые поля по ступеням: 48 (десктоп) → 32 (планшет) → 20 (мобайл ≤700) */
   .wrap{padding:0 32px}
+  .f-grid{grid-template-columns:1fr 1fr;gap:32px}
   .hero-video{min-height:560px}
   .hero-video-inner{padding-top:48px;padding-bottom:48px}
 }
@@ -219,9 +220,12 @@ header{position:sticky;top:0;z-index:50;background:var(--cell);border-bottom:1px
 
 /* футер */
 footer{border-top:1px solid var(--line);padding:48px 0;font-size:15px;color:var(--muted)}
-.f-grid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:32px}
-.f-col b{color:var(--ink);font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.08em;display:block;margin-bottom:12px}
-.f-col div{margin-bottom:4px}
+/* футер: три колонки одной сеткой — заголовки на одной линии, ширины не пляшут по контенту */
+.f-grid{display:grid;grid-template-columns:1.4fr 1.1fr 1fr;gap:48px;margin-bottom:40px}
+.f-links{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.f-addr{margin-top:16px}
+.f-col b{color:var(--ink);font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.08em;display:block;margin-bottom:16px}
+.f-col div{margin-bottom:8px}
 .f-col a:hover{color:var(--ink)}
 .f-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
 
@@ -328,6 +332,7 @@ footer{border-top:1px solid var(--line);padding:48px 0;font-size:15px;color:var(
   /* плашка-подпись примыкает к краю экрана — горизонтальный паддинг держит текст на общих 20px */
   .photo-cap{border-right:1px solid var(--line);padding:12px 20px}
   footer .f-grid,footer .f-bottom{padding-left:20px;padding-right:20px}
+  .f-grid{grid-template-columns:1fr;gap:32px}
   .sec-cell p,.prose{max-width:none}
 }
 .trow--2{grid-template-columns:1fr auto}
