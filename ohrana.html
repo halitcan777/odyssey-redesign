@@ -203,7 +203,7 @@ document.getElementById('themeToggle')?.addEventListener('click',()=>{
   try{localStorage.setItem('odyssey-theme',next)}catch(e){}
 });
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(reduced){document.querySelectorAll('.hero-video-media,.photo-cell-video').forEach(v=>v.pause())}
+if(reduced){document.querySelectorAll('video.hero-video-media,.photo-cell-video').forEach(v=>v.pause())}
 if(!reduced){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));

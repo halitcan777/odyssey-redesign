@@ -54,11 +54,9 @@
   </div>
 </header>
 
-<!-- ГЕРОЙ: видео на весь экран -->
+<!-- ГЕРОЙ: фото на весь экран -->
 <section class="hero-video">
-  <video class="hero-video-media mirror" muted playsinline poster="фото/тир_рубеж_постер.jpg">
-    <source src="видео/тир_рубеж.mp4" type="video/mp4">
-  </video>
+  <img class="hero-video-media" style="object-position:72% 50%" src="фото/герой_страж_0730.webp" alt="Сотрудник охраны ГК «Одиссей» в снаряжении">
   <div class="hero-video-scrim"></div>
   <div class="wrap hero-video-inner">
     <div class="kicker">Пермь и Пермский край · с 2009 года</div>
@@ -365,11 +363,11 @@
   document.body.style.overflow='hidden';
   setTimeout(()=>{
     intro.classList.add('out');
-    intro.addEventListener('transitionend',()=>{intro.remove();document.body.style.overflow='';document.querySelector('.hero-video-media')?.play()},{once:true});
+    intro.addEventListener('transitionend',()=>{intro.remove();document.body.style.overflow='';document.querySelector('video.hero-video-media')?.play()},{once:true});
   },1900);
 })();
 document.querySelector('.burger')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')});
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.hero-video-media,.photo-cell-video').forEach(v=>v.pause())}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('video.hero-video-media,.photo-cell-video').forEach(v=>v.pause())}
 document.getElementById('themeToggle')?.addEventListener('click',()=>{
   const root=document.documentElement;
   const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
